@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "framework": "vite",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "buildCommand": "pnpm --filter @workspace/sai-tarun-portfolio build",
+  "outputDirectory": "artifacts/sai-tarun-portfolio/dist/public",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
