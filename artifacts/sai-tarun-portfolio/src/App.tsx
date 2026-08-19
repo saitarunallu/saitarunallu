@@ -152,7 +152,7 @@ function Header({ activeSection }: { activeSection: string }) {
       <div className="nav-shell">
          <a href="#top" className="wordmark" onClick={closeMenu} data-testid="link-home">
           <span className="wordmark-mark">ST</span>
-          <span className="wordmark-text">Sai Tarun / Java Engineer</span>
+          <span className="wordmark-text">Sai Tarun Allu / Java Engineer</span>
         </a>
         <button
           className="menu-toggle"
