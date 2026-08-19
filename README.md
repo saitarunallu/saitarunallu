@@ -141,8 +141,17 @@ Digital product consulting, demonstrations, customer requirements, and client co
 
 ## 📄 Resume
 
-**Online resume:** [saitarunallu.com/resume](https://saitarunallu.com/resume)  
-**Download PDF:** [Allu_Surya_Tarun_Resume.pdf](https://saitarunallu.com/Allu_Surya_Tarun_Resume.pdf)
+<div align="center">
+
+<a href="https://saitarunallu.com/resume">
+  <img src="https://img.shields.io/badge/VIEW_ONLINE_RESUME-2563EB?style=for-the-badge" alt="View Online Resume">
+</a>
+&nbsp;
+<a href="https://saitarunallu.com/Allu_Surya_Tarun_Resume.pdf">
+  <img src="https://img.shields.io/badge/DOWNLOAD_RESUME_PDF-374151?style=for-the-badge" alt="Download Resume PDF">
+</a>
+
+</div>
 
 ---
 
