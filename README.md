@@ -6,115 +6,117 @@ Java Software Engineer
 
 Core Java · OOP · JDBC · MySQL · SQL · Backend Development
 
-<p>
-  <a href="https://saitarunallu.com">🌐 Portfolio</a> ·
-  <a href="https://www.linkedin.com/in/saitarunallu/">💼 LinkedIn</a> ·
-  <a href="mailto:saitarun1932@gmail.com">📧 Email</a>
-</p>
+<br>
 
-<p>
-  <img src="https://img.shields.io/badge/Java-Developer-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java Developer">
-  <img src="https://img.shields.io/badge/MCA-9.10%2F10-4B5563?style=for-the-badge" alt="MCA CGPA">
-  <img src="https://img.shields.io/badge/Focus-Backend%20Development-2563EB?style=for-the-badge" alt="Backend Development">
-</p>
+<a href="https://saitarunallu.com">
+  <img src="https://img.shields.io/badge/🌐%20Portfolio-saitarunallu.com-111827?style=for-the-badge" alt="Portfolio">
+</a>
+<a href="https://www.linkedin.com/in/saitarunallu/">
+  <img src="https://img.shields.io/badge/💼%20LinkedIn-Connect-0A66C2?style=for-the-badge" alt="LinkedIn">
+</a>
+<a href="mailto:saitarun1932@gmail.com">
+  <img src="https://img.shields.io/badge/📧%20Email-Contact-EA4335?style=for-the-badge" alt="Email">
+</a>
+
+<br><br>
+
+<img src="https://img.shields.io/badge/Java-Core%20%26%20OOP-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java">
+<img src="https://img.shields.io/badge/JDBC-Backend-2563EB?style=flat-square" alt="JDBC">
+<img src="https://img.shields.io/badge/MySQL-Database-4479A1?style=flat-square&logo=mysql&logoColor=white" alt="MySQL">
+<img src="https://img.shields.io/badge/DSA-Foundations-374151?style=flat-square" alt="DSA">
 
 </div>
 
 👨‍💻 About Me
 
-I'm Allu Surya Naga Sai Tarun, a Java Software Engineer focused on building practical, maintainable applications with Core Java, Object-Oriented Programming, JDBC, MySQL, and SQL.
+I'm Allu Surya Naga Sai Tarun, a Java Software Engineer focused on Core Java, Object-Oriented Programming, JDBC, MySQL, SQL, and backend application development.
 
-I enjoy understanding how things work internally—not just using APIs. My projects include custom implementations of common Java collections such as ArrayList, LinkedList, and HashMap, alongside database-driven applications built with JDBC and MySQL.
+I enjoy building practical software and understanding what happens underneath the abstractions. My projects combine database-driven applications with hands-on work around Java collections, data structures, validation, exception handling, and modular design.
 
-🎯 Career focus: Java Software Engineering & Backend Development
+🎯 Role focus: Java Software Engineering & Backend Development
 
 ☕ Primary language: Java
 
 🗄️ Database: MySQL / SQL
 
-🔌 Backend: JDBC, DAO-based application design
+🔌 Backend: JDBC, DAO-based design, service-layer architecture
 
 🧠 Core interests: OOP, Collections, Data Structures, Algorithms, Multithreading
 
-📚 Currently strengthening: Java, DSA, backend development and software engineering fundamentals
+📍 Based in: Tuni, Andhra Pradesh, India
 
-🌐 Portfolio: saitarunallu.com
+🛠️ Technical Skills
 
-🛠️ Tech Stack
+Core Java
 
-☕ Java
+Java OOP Collections Exception Handling File Handling Multithreading Generics Lambda Expressions Stream API Interfaces Abstract Classes
 
-<p>
-<img src="https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white">
-<img src="https://img.shields.io/badge/OOP-374151?style=flat-square">
-<img src="https://img.shields.io/badge/Collections-374151?style=flat-square">
-<img src="https://img.shields.io/badge/Multithreading-374151?style=flat-square">
-<img src="https://img.shields.io/badge/Streams-374151?style=flat-square">
-<img src="https://img.shields.io/badge/Lambda-374151?style=flat-square">
-<img src="https://img.shields.io/badge/Generics-374151?style=flat-square">
-</p>
+Database & Backend
 
-🗄️ Database & Backend
+JDBC MySQL SQL PreparedStatement CRUD Transactions DAO
 
-<p>
-<img src="https://img.shields.io/badge/JDBC-2563EB?style=flat-square">
-<img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white">
-<img src="https://img.shields.io/badge/SQL-2563EB?style=flat-square">
-<img src="https://img.shields.io/badge/PreparedStatement-374151?style=flat-square">
-<img src="https://img.shields.io/badge/CRUD-374151?style=flat-square">
-<img src="https://img.shields.io/badge/Transactions-374151?style=flat-square">
-</p>
+Web & Tools
 
-🌐 Web & Tools
+HTML5 CSS3 Bootstrap Flexbox Git IntelliJ IDEA Eclipse VS Code
 
-<p>
-<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white">
-<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white">
-<img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat-square&logo=bootstrap&logoColor=white">
-<img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white">
-<img src="https://img.shields.io/badge/IntelliJ_IDEA-000000?style=flat-square&logo=intellijidea&logoColor=white">
-<img src="https://img.shields.io/badge/VS_Code-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white">
-</p>
+Engineering Fundamentals
 
-🚀 Featured Projects
+Data Structures Algorithms Debugging Input Validation Clean Code Modular Programming
 
-🏦 Banking Management System
+🚀 Selected Projects
 
-Java · JDBC · MySQL · OOP
+🏦 Java Banking Management System
 
-A database-driven banking application designed around core banking operations.
+Java 21 · JDBC · MySQL 8 · Maven · OOP
 
-Implemented:
+A console-based banking application demonstrating layered architecture, DAO and service-layer design, JDBC connectivity, session management, and database-driven banking operations.
 
-Account creation and authentication
+Key functionality
 
-Deposits and withdrawals
+Customer registration and login
 
-Fund transfers
+Automatic bank account creation
+
+Deposit and withdrawal
 
 Balance enquiry
 
 Transaction history
 
+Account details
+
 Input validation
 
-Exception handling
+Session management
 
-DAO-based database organization
+PreparedStatement and CRUD operations
 
-Secure parameterized SQL using PreparedStatement
+Architecture
+
+Console UI (Main)
+        │
+        ▼
+ BankingService
+        │
+ ┌──────┼────────────────┐
+ ▼      ▼                ▼
+CustomerDAO  AccountDAO  TransactionDAO
+        │
+        ▼
+   MySQL Database
+
+🔗 View repository →
 
 🧱 Custom Java Collections Framework
 
 Core Java
 
-Built custom versions of commonly used collection data structures to understand their internal mechanics rather than treating them as black boxes.
+Hands-on implementations of common collection data structures to understand their internal mechanics instead of treating them as black boxes.
 
-Implemented:
-
+Implemented
 ArrayList · LinkedList · HashMap · Stack · Queue
 
-Concepts explored:
+Concepts explored
 
 Dynamic array resizing
 
@@ -126,11 +128,13 @@ Collection internals
 
 Modular testing
 
-📊 Other Projects
+Public repository will be linked here once the implementation is published.
+
+📚 Other Projects
 
 Project
 
-Stack
+Technologies
 
 🎓 Student Management System
 
@@ -148,28 +152,6 @@ Java · JDBC · MySQL
 
 Java · Collections · Streams · Lambda
 
-💼 Professional Experience
-
-Concentrix — Associate
-
-May 2022 – August 2023
-
-Supported banking customers with account-related queries in a high-volume environment.
-
-Developed analytical thinking, communication and problem-solving skills.
-
-Gained exposure to banking workflows and customer operations.
-
-Just Dial — Certified Internet Consultant
-
-October 2021 – May 2022
-
-Consulted businesses on digital products and technology solutions.
-
-Conducted product demonstrations and gathered customer requirements.
-
-Developed client relationship and communication skills.
-
 🎓 Education
 
 Master of Computer Applications (MCA)
@@ -179,6 +161,14 @@ CGPA: 9.10 / 10
 Bachelor of Science (MECS)
 Aditya Degree College · 2018–2023
 CGPA: 7.13 / 10
+
+💼 Professional Background
+
+Concentrix — Associate · May 2022 – August 2023
+Banking customer support in a high-volume environment.
+
+Just Dial — Certified Internet Consultant · October 2021 – May 2022
+Digital product consulting, demonstrations, customer requirements, and client communication.
 
 📜 Certifications
 
@@ -198,41 +188,19 @@ CGPA: 7.13 / 10
 
 🤝 Participant — National Service Scheme (NSS) Camp
 
-📈 What I'm Working Toward
+🎯 Current Focus
 
-My goal is to build a strong foundation as a Java Software Engineer and progress toward production-grade backend development.
+Strengthening my Java backend foundation through Core Java, OOP, Collections, DSA, JDBC, SQL/MySQL, and backend application development.
 
-Current focus areas:
+My goal is to build software I can explain, debug, test, and improve — not just code that happens to work.
 
-Core Java
-   ↓
-OOP & Design Principles
-   ↓
-Collections + DSA
-   ↓
-JDBC + SQL + MySQL
-   ↓
-Backend Development
-   ↓
-Spring / Spring Boot
-   ↓
-Production-Ready Java Applications
-
-📄 Resume & Portfolio
+🌐 Find Me Online
 
 <div align="center">
 
-Explore my work
-
 <a href="https://saitarunallu.com">
-  <img src="https://img.shields.io/badge/🌐%20VIEW%20PORTFOLIO-111827?style=for-the-badge" alt="View Portfolio">
+  <img src="https://img.shields.io/badge/PORTFOLIO-111827?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Portfolio">
 </a>
-<a href="https://saitarunallu.com/resume">
-  <img src="https://img.shields.io/badge/📄%20ONLINE%20RESUME-2563EB?style=for-the-badge" alt="Online Resume">
-</a>
-
-<br><br>
-
 <a href="https://www.linkedin.com/in/saitarunallu/">
   <img src="https://img.shields.io/badge/LINKEDIN-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
 </a>
@@ -240,23 +208,14 @@ Explore my work
   <img src="https://img.shields.io/badge/GITHUB-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
 </a>
 
-</div>
+<br><br>
 
-📬 Contact
-
-Sai Tarun Allu
-📍 Tuni, Andhra Pradesh, India
+📄 View Online Resume
 📧 saitarun1932@gmail.com
 
-🌐 Portfolio
-
-💼 LinkedIn
-
-🐙 GitHub
+</div>
 
 <div align="center">
-
-Thanks for visiting my profile! 👋
 
 Java Software Engineer · Backend Development · Continuous Learning
 
