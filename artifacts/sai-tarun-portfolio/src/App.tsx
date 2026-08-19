@@ -1,20 +1,23 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ArrowUpRight, ChevronDown, ChevronUp, Download, Eye, Mail, MapPin, Menu, Phone, Terminal, X } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, ChevronDown, ChevronUp, Download, Eye, Github, Linkedin, Mail, MapPin, Menu, Phone, Printer, Terminal, X } from 'lucide-react';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import NotFound from '@/pages/not-found';
-import { Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
+import { Link, Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
 
 const queryClient = new QueryClient();
 const resumePath = '/Allu_Surya_Tarun_Resume.pdf';
+const githubUrl = 'https://github.com/saitarunallu';
+const linkedinUrl = 'https://www.linkedin.com/in/saitarunallu/';
 
 const navigation = [
-  { id: 'about', label: '01 / About' },
-  { id: 'skills', label: '02 / Skills' },
-  { id: 'experience', label: '03 / Experience' },
-  { id: 'projects', label: '04 / Projects' },
+  { id: 'about', label: 'About' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'education', label: 'Education' },
   { id: 'contact', label: 'Contact' },
 ];
 
@@ -28,15 +31,19 @@ const skillGroups = [
     skills: ['OOP', 'Collections Framework', 'Exception Handling', 'File Handling', 'Multithreading', 'Lambda Expressions', 'Stream API', 'Generics', 'Arrays', 'Strings', 'Wrapper Classes', 'Enums', 'Interfaces', 'Abstract Classes'],
   },
   {
-    title: 'Database',
-    skills: ['MySQL', 'SQL', 'PreparedStatement', 'CRUD Operations', 'Transactions'],
+    title: 'Database / Backend',
+    skills: ['JDBC', 'MySQL', 'SQL', 'PreparedStatement', 'CRUD Operations', 'Transactions'],
   },
   {
-    title: 'Frontend & Tools',
-    skills: ['HTML5', 'CSS3', 'Bootstrap', 'Responsive Web Design', 'Flexbox', 'Git', 'IntelliJ IDEA', 'Eclipse', 'VS Code'],
+    title: 'Frontend',
+    skills: ['HTML5', 'CSS3', 'Bootstrap', 'Responsive Web Design', 'Flexbox'],
   },
   {
-    title: 'Engineering Practice',
+    title: 'Tools',
+    skills: ['Git', 'IntelliJ IDEA', 'Eclipse', 'VS Code'],
+  },
+  {
+    title: 'Engineering Concepts',
     skills: ['Data Structures', 'Algorithms', 'Debugging', 'Input Validation', 'Clean Code', 'Modular Programming'],
   },
 ];
@@ -68,49 +75,52 @@ const projects = [
     details: [
       'Account creation, authentication, deposits, withdrawals, fund transfers, balance enquiry, and transaction history.',
       'MySQL integration through JDBC and PreparedStatement for secure database operations.',
-      'Reusable DAO classes, input validation, and exception handling.',
+      'Object-Oriented Programming through modular class design.',
+      'Input validation and exception handling to improve application reliability.',
+      'Reusable DAO classes for organized database operations.',
     ],
     featured: true,
   },
   {
-    id: 'student-management',
+    id: 'custom-collections',
     number: '02',
+    title: 'Custom Java Collections Framework',
+    description: 'Custom implementations exploring the mechanics behind familiar data structures, rather than only consuming the standard APIs.',
+    tech: ['Core Java'],
+    details: ['Custom ArrayList, LinkedList, HashMap, Stack, and Queue implementations.', 'Hashing, collision handling, linked node structures, and dynamic resizing.', 'Modular test classes for each implementation and a deeper understanding of collection internals.'],
+    featured: true,
+  },
+  {
+    id: 'student-management',
+    number: '03',
     title: 'Student Management System',
     description: 'A CRUD application for registration, search, update, and deletion of student records.',
     tech: ['Java', 'JDBC', 'MySQL'],
-    details: ['Persistent storage with JDBC.', 'Modular programming and validation for record management.'],
+    details: ['Student registration, search, update, and deletion functionalities.', 'MySQL integration using JDBC for persistent data storage.', 'Modular programming and validation for efficient record management.'],
   },
   {
     id: 'library-management',
-    number: '03',
+    number: '04',
     title: 'Library Management System',
     description: 'Book and member management with issue, return, search, and fine calculation features.',
     tech: ['Java', 'JDBC', 'MySQL'],
-    details: ['MySQL-backed book and member records.', 'Object-oriented design for maintainability.'],
+    details: ['Book issue, return, search, and fine calculation features.', 'MySQL-backed book and member records through JDBC.', 'Object-oriented design for maintainable code.'],
   },
   {
     id: 'employee-management',
-    number: '04',
+    number: '05',
     title: 'Employee Management System',
     description: 'A layered employee management application with CRUD operations and department workflows.',
     tech: ['Java', 'JDBC', 'MySQL'],
-    details: ['Employee search, department management, salary updates, and validation.', 'Layered architecture for persistent data management.'],
+    details: ['Employee search, department management, salary updates, and validation.', 'Layered architecture with JDBC and MySQL for persistent data management.'],
   },
   {
     id: 'expense-tracker',
-    number: '05',
+    number: '06',
     title: 'Expense Tracker',
     description: 'An in-memory expense tracker that turns daily entries into monthly and category-wise reports.',
-    tech: ['Java', 'Collections', 'Streams', 'Lambdas'],
-    details: ['Java Streams and Lambda Expressions for filtering and processing.', 'Collections Framework for efficient in-memory data management.'],
-  },
-  {
-    id: 'custom-collections',
-    number: '06',
-    title: 'Custom Java Collections Framework',
-    description: 'Custom implementations exploring the mechanics behind familiar data structures.',
-    tech: ['Core Java'],
-    details: ['Custom ArrayList, LinkedList, HashMap, Stack, and Queue.', 'Hashing, collision handling, linked nodes, and dynamic resizing tested with modular classes.'],
+    tech: ['Java', 'Collections Framework', 'Stream API', 'Lambda Expressions'],
+    details: ['Daily expense recording with monthly and category-wise reports.', 'Java Streams and Lambda Expressions for filtering and data processing.', 'Collections Framework for efficient in-memory data management.'],
   },
 ];
 
@@ -140,7 +150,7 @@ function Header({ activeSection }: { activeSection: string }) {
   return (
     <header className="site-header">
       <div className="nav-shell">
-        <a href="#top" className="wordmark" onClick={closeMenu} data-testid="link-home">
+         <a href="#top" className="wordmark" onClick={closeMenu} data-testid="link-home">
           <span className="wordmark-mark">ST</span>
           <span className="wordmark-text">Sai Tarun / Java Engineer</span>
         </a>
@@ -154,7 +164,7 @@ function Header({ activeSection }: { activeSection: string }) {
           {menuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
         <nav className={`nav-links ${menuOpen ? 'open' : ''}`} aria-label="Primary navigation">
-          {navigation.map((item) => (
+           {navigation.map((item) => (
             <a
               href={`#${item.id}`}
               className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
@@ -165,9 +175,7 @@ function Header({ activeSection }: { activeSection: string }) {
               {item.label}
             </a>
           ))}
-          <a href={resumePath} target="_blank" rel="noreferrer" className="nav-resume" data-testid="link-nav-resume">
-            Resume PDF
-          </a>
+           <Link href="/resume" className="nav-resume" onClick={closeMenu} data-testid="link-nav-resume">Resume</Link>
         </nav>
       </div>
     </header>
@@ -192,7 +200,7 @@ function CodeWorkbench() {
         <span className="code-line">&nbsp;&nbsp;&nbsp;&nbsp;cleanCode.<span className="code-key">apply</span>(problem);</span>
         <span className="code-line">&nbsp;&nbsp;{'}'}</span>
         <span className="code-line">{'}'}</span>
-        <span className="code-line cursor-line">&gt; <span className="code-string">ready_for_review</span><span className="cursor" /></span>
+         <span className="code-line cursor-line">&gt; <span className="code-string">ship_with_care</span><span className="cursor" /></span>
       </div>
     </div>
   );
@@ -215,7 +223,7 @@ function ProjectCard({ project }: { project: typeof projects[number] }) {
         data-testid={`button-project-details-${project.id}`}
       >
         {expanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
-        {expanded ? 'Hide details' : 'Read build notes'}
+         {expanded ? 'Hide details' : 'View Details'}
       </button>
       {expanded && (
         <div className="project-details">
@@ -249,21 +257,26 @@ function Home() {
       <Header activeSection={activeSection} />
       <section className="hero" aria-labelledby="hero-title">
         <div>
-          <div className="eyebrow reveal">Java Software Engineer · Tuni, Andhra Pradesh</div>
-          <h1 id="hero-title" className="reveal reveal-delay-1">Make it <em>work.</em><br />Make it clear.</h1>
-          <p className="hero-lede reveal reveal-delay-2">I’m Allu Surya Naga Sai Tarun. A Java developer building a strong foundation in backend application development, databases, and clean, maintainable software.</p>
+           <div className="eyebrow reveal">Tuni, Andhra Pradesh, India</div>
+           <p className="hero-name reveal">ALLU SURYA NAGA SAI TARUN</p>
+           <h1 id="hero-title" className="reveal reveal-delay-1">Java Software <em>Engineer.</em></h1>
+           <p className="hero-stack reveal reveal-delay-1">Core Java · OOP · JDBC · MySQL · Backend Development</p>
+           <p className="hero-lede reveal reveal-delay-2">Java-focused engineer with an MCA foundation and hands-on practice building clear, modular applications around data, business rules, and the fundamentals underneath.</p>
           <div className="hero-actions reveal reveal-delay-2">
-            <a href="#projects" className="button-primary" data-testid="link-hero-projects">Explore projects <ArrowUpRight size={15} /></a>
-            <a href={resumePath} target="_blank" rel="noreferrer" className="button-outline" data-testid="link-hero-resume"><Eye size={15} /> View resume</a>
-            <a href={resumePath} download="Allu_Surya_Naga_Sai_Tarun_Resume.pdf" className="button-outline" data-testid="link-download-resume"><Download size={15} /> Download PDF</a>
+             <Link href="/resume" className="button-primary" data-testid="link-hero-resume"><Eye size={15} /> View Online Resume</Link>
+             <a href={resumePath} download="Allu_Surya_Naga_Sai_Tarun_Resume.pdf" className="button-outline" data-testid="link-download-resume"><Download size={15} /> Download Resume PDF</a>
           </div>
+           <div className="hero-socials reveal reveal-delay-2" aria-label="Professional profiles">
+             <a href={githubUrl} target="_blank" rel="noreferrer" data-testid="link-hero-github"><Github size={15} /> GitHub <ArrowUpRight size={13} /></a>
+             <a href={linkedinUrl} target="_blank" rel="noreferrer" data-testid="link-hero-linkedin"><Linkedin size={15} /> LinkedIn <ArrowUpRight size={13} /></a>
+           </div>
         </div>
         <CodeWorkbench />
       </section>
 
       <section className="about-band" id="about" aria-labelledby="about-title">
         <div className="section">
-          <div className="section-heading">
+         <div className="section-heading">
             <div>
               <div className="section-kicker">01 / Working profile</div>
               <h2 id="about-title">A practical<br />point of view.</h2>
@@ -288,7 +301,7 @@ function Home() {
       <section className="section" id="skills" aria-labelledby="skills-title">
         <div className="section-heading">
           <div>
-            <div className="section-kicker">02 / Technical toolkit</div>
+            <div className="section-kicker">03 / Technical toolkit</div>
             <h2 id="skills-title">Tools for the<br />next useful layer.</h2>
           </div>
         </div>
@@ -311,7 +324,7 @@ function Home() {
         <div className="section">
           <div className="section-heading">
             <div>
-              <div className="section-kicker">03 / Experience</div>
+              <div className="section-kicker">04 / Experience</div>
               <h2 id="experience-title">People problems<br />are engineering practice.</h2>
             </div>
             <p>Two roles that sharpened how I listen, investigate, and communicate clearly.</p>
@@ -335,17 +348,28 @@ function Home() {
       <section className="section" id="projects" aria-labelledby="projects-title">
         <div className="section-heading">
           <div>
-            <div className="section-kicker">04 / Selected work</div>
+            <div className="section-kicker">02 / Selected work</div>
             <h2 id="projects-title">Small systems.<br />Serious fundamentals.</h2>
           </div>
           <p>Hands-on projects spanning persistent data, business rules, and the internals of collections.</p>
         </div>
         <div className="project-grid">
-          {projects.map((project) => <ProjectCard project={project} key={project.id} />)}
+             <div className="project-group project-group-featured">
+               <div className="project-group-label">Featured Projects <span>01 — 02</span></div>
+               <div className="featured-project-grid">
+                 {projects.filter((project) => project.featured).map((project) => <ProjectCard project={project} key={project.id} />)}
+               </div>
+             </div>
+             <div className="project-group project-group-additional">
+               <div className="project-group-label">Additional Projects <span>03 — 06</span></div>
+               <div className="additional-project-grid">
+                 {projects.filter((project) => !project.featured).map((project) => <ProjectCard project={project} key={project.id} />)}
+               </div>
+             </div>
         </div>
       </section>
 
-      <section className="education-band" aria-labelledby="education-title">
+       <section className="education-band" id="education" aria-labelledby="education-title">
         <div className="section">
           <div className="section-heading">
             <div>
@@ -382,6 +406,22 @@ function Home() {
         </div>
       </section>
 
+       <section className="resume-cta-band" id="resume" aria-labelledby="resume-cta-title">
+         <div className="section resume-cta-inner">
+           <div>
+             <div className="section-kicker">06 / Resume</div>
+             <h2 id="resume-cta-title">The full record,<br /><em>ready to read.</em></h2>
+           </div>
+           <div className="resume-cta-copy">
+             <p>A responsive HTML resume for a quick scan, with a print-friendly layout and the original PDF available when you need it.</p>
+             <div className="resume-cta-actions">
+               <Link href="/resume" className="button-primary" data-testid="link-home-online-resume"><Eye size={15} /> View Online Resume</Link>
+               <a href={resumePath} download="Allu_Surya_Naga_Sai_Tarun_Resume.pdf" className="button-outline" data-testid="link-home-download-resume"><Download size={15} /> Download PDF</a>
+             </div>
+           </div>
+         </div>
+       </section>
+
       <section className="section contact-section" id="contact" aria-labelledby="contact-title">
         <div className="contact-panel">
           <div>
@@ -391,15 +431,70 @@ function Home() {
           <div className="contact-links">
             <a className="contact-link" href="mailto:saitarun1932@gmail.com" data-testid="link-email"><Mail size={15} /> saitarun1932@gmail.com <ArrowUpRight size={14} /></a>
             <a className="contact-link" href="tel:+919676561932" data-testid="link-phone"><Phone size={15} /> +91-9676561932 <ArrowUpRight size={14} /></a>
-            <a className="contact-link" href={resumePath} target="_blank" rel="noreferrer" data-testid="link-contact-resume"><Terminal size={15} /> Read the resume <ArrowUpRight size={14} /></a>
+             <Link className="contact-link" href="/resume" data-testid="link-contact-resume"><Terminal size={15} /> View online resume <ArrowUpRight size={14} /></Link>
+             <a className="contact-link" href={githubUrl} target="_blank" rel="noreferrer" data-testid="link-contact-github"><Github size={15} /> GitHub <ArrowUpRight size={14} /></a>
+             <a className="contact-link" href={linkedinUrl} target="_blank" rel="noreferrer" data-testid="link-contact-linkedin"><Linkedin size={15} /> LinkedIn <ArrowUpRight size={14} /></a>
           </div>
         </div>
       </section>
 
       <footer className="footer">
         <span data-testid="text-footer-name">ALLU SURYA NAGA SAI TARUN</span>
-        <span><MapPin size={12} style={{ verticalAlign: 'middle', marginRight: 5 }} />Tuni, Andhra Pradesh, India · Java Software Engineer</span>
+         <span><MapPin size={12} style={{ verticalAlign: 'middle', marginRight: 5 }} />Tuni, Andhra Pradesh, India · Java Software Engineer</span>
+         <span className="footer-links"><a href={githubUrl} target="_blank" rel="noreferrer" data-testid="link-footer-github">GitHub</a><a href={linkedinUrl} target="_blank" rel="noreferrer" data-testid="link-footer-linkedin">LinkedIn</a></span>
       </footer>
+    </main>
+  );
+}
+
+function Resume() {
+  useEffect(() => {
+    document.title = 'Resume — Sai Tarun Allu | Java Software Engineer';
+    const description = document.querySelector('meta[name="description"]');
+    const canonical = document.querySelector('link[rel="canonical"]');
+    const previousDescription = description?.getAttribute('content') ?? '';
+    const previousCanonical = canonical?.getAttribute('href') ?? '';
+    description?.setAttribute('content', 'Online resume for Allu Surya Naga Sai Tarun, a Java Software Engineer focused on Core Java, OOP, JDBC, MySQL, backend development, and software projects.');
+    canonical?.setAttribute('href', 'https://saitarunallu.com/resume');
+    return () => {
+      document.title = 'Sai Tarun Allu | Java Software Engineer';
+      description?.setAttribute('content', previousDescription);
+      canonical?.setAttribute('href', previousCanonical);
+    };
+  }, []);
+
+  return (
+    <main className="resume-page">
+      <div className="resume-toolbar">
+        <Link href="/" className="resume-back" data-testid="link-resume-back"><ArrowLeft size={15} /> Portfolio</Link>
+        <div className="resume-toolbar-actions">
+          <button className="resume-print" onClick={() => window.print()} data-testid="button-print-resume"><Printer size={15} /> Print</button>
+          <a href={resumePath} download="Allu_Surya_Naga_Sai_Tarun_Resume.pdf" className="button-primary" data-testid="link-resume-download"><Download size={15} /> Download PDF</a>
+        </div>
+      </div>
+      <article className="resume-sheet" aria-labelledby="resume-name">
+        <header className="resume-header">
+          <div>
+            <p className="resume-kicker">Java Software Engineer</p>
+            <h1 id="resume-name">ALLU SURYA NAGA SAI TARUN</h1>
+            <p className="resume-role">Core Java · OOP · JDBC · MySQL · Backend Development</p>
+          </div>
+          <div className="resume-contact">
+            <a href="mailto:saitarun1932@gmail.com">saitarun1932@gmail.com</a>
+            <a href="tel:+919676561932">+91 96765 61932</a>
+            <span>Tuni, Andhra Pradesh, India</span>
+            <a href={githubUrl} target="_blank" rel="noreferrer">github.com/saitarunallu</a>
+            <a href={linkedinUrl} target="_blank" rel="noreferrer">linkedin.com/in/saitarunallu</a>
+          </div>
+        </header>
+        <div className="resume-rule" />
+        <section className="resume-section"><h2>Profile</h2><p>Motivated Java Developer with a Master of Computer Applications from Andhra University. Strong foundation in Core Java, JDBC, MySQL, SQL, Object-Oriented Programming, Multithreading, and backend application development. Passionate about building scalable, maintainable software using clean coding practices and continuously enhancing technical skills through hands-on project development.</p></section>
+        <section className="resume-section"><h2>Technical Skills</h2><div className="resume-skill-rows">{skillGroups.map((group) => <div className="resume-skill-row" key={group.title}><strong>{group.title}</strong><span>{group.skills.join(', ')}</span></div>)}</div></section>
+        <section className="resume-section"><h2>Projects</h2><div className="resume-project-list">{projects.map((project) => <div className="resume-project" key={project.id}><div><h3>{project.title}</h3><p>{project.description}</p></div><span>{project.tech.join(' · ')}</span><ul>{project.details.map((detail) => <li key={detail}>{detail}</li>)}</ul></div>)}</div></section>
+        <section className="resume-section"><h2>Professional Experience</h2>{experience.map((item) => <div className="resume-experience" key={item.company}><div><h3>{item.role} <span>— {item.company}</span></h3><p>{item.date}</p></div><p>{item.description}</p></div>)}</section>
+        <section className="resume-section"><h2>Education</h2>{education.map((item) => <div className="resume-education" key={item.degree}><div><h3>{item.degree}</h3><p>{item.school}</p></div><span>{item.years} · {item.score}</span></div>)}</section>
+        <div className="resume-columns"><section className="resume-section"><h2>Certifications</h2><ul>{certifications.map((item) => <li key={item}>{item}</li>)}</ul></section><section className="resume-section"><h2>Achievements</h2><ul>{achievements.map((item) => <li key={item}>{item}</li>)}</ul></section></div>
+      </article>
     </main>
   );
 }
@@ -409,6 +504,7 @@ function Router() {
     <RoutedErrorBoundary>
       <Switch>
         <Route path="/" component={Home} />
+        <Route path="/resume" component={Resume} />
         <Route component={NotFound} />
       </Switch>
     </RoutedErrorBoundary>
