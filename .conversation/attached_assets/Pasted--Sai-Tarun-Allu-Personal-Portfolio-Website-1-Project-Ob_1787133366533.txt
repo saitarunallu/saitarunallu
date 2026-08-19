@@ -1,0 +1,787 @@
+# Sai Tarun Allu — Personal Portfolio Website
+
+## 1. Project Objective
+
+Build a **premium, professional, modern developer portfolio website** for the domain:
+
+**https://saitarunallu.com**
+
+The website should position me clearly as a **Java Software Engineer / Java Developer** and present my technical skills, projects, education, professional experience, certifications, achievements, GitHub work, LinkedIn profile, and resume in a polished way.
+
+This is a **personal professional portfolio**, not a generic template website. The final result should look credible for recruiters, hiring managers, and software companies.
+
+The implementation must be designed for **static hosting and deployment on Netlify**.
+
+---
+
+## 2. Important Instruction — Plan the UI/UX Before Building
+
+Do **not** immediately start coding individual sections.
+
+First:
+
+1. Analyze the content and determine the best information architecture.
+2. Plan the complete page structure and navigation.
+3. Define the visual hierarchy, spacing system, typography, responsive behavior, component structure, interactions, and mobile experience.
+4. Decide how recruiters should be able to understand my profile within the first 10–20 seconds.
+5. Create a consistent design system before implementing the page.
+6. Avoid unnecessary visual effects, excessive animations, clutter, or gimmicky components.
+7. Make every design decision serve either **professional credibility, readability, navigation, or conversion**.
+8. Build the entire experience coherently from the beginning rather than implementing sections independently and redesigning them later.
+
+The objective is to achieve a polished first implementation with **minimal or no rework**.
+
+Before implementation, internally validate:
+
+* Does the hero section immediately communicate who I am and what role I am targeting?
+* Is the strongest project/work visible without excessive scrolling?
+* Can a recruiter quickly access my resume?
+* Are GitHub and LinkedIn easy to discover?
+* Is the site readable on mobile?
+* Does the visual design look like a professional software engineer's portfolio rather than a student template?
+* Are sections ordered according to recruiter usefulness rather than simply copying the resume order?
+
+---
+
+## 3. Visual / UI Direction
+
+Use a **modern engineering portfolio aesthetic**.
+
+Desired characteristics:
+
+* Clean
+* Minimal
+* Professional
+* Premium
+* High readability
+* Strong typography
+* Excellent spacing
+* Subtle visual hierarchy
+* Responsive
+* Fast
+* Accessible
+
+Do not use:
+
+* Excessive gradients
+* Excessive glassmorphism
+* Huge animated backgrounds
+* Overloaded particle effects
+* Cartoonish illustrations
+* Too many cards
+* Excessive rounded containers
+* Generic portfolio-template styling
+* Fake statistics or fabricated achievements
+* Artificial skill percentages
+
+The website should look credible when viewed by a **Java/Spring Boot recruiter or engineering hiring manager**.
+
+A restrained accent color can be used for interactive elements and important highlights, while maintaining a professional neutral base.
+
+---
+
+## 4. Recommended Site Structure
+
+Use a single-page portfolio with smooth navigation, while keeping the implementation structured into reusable components.
+
+Recommended navigation:
+
+**Home | About | Skills | Projects | Experience | Education | Certifications | Achievements | Resume | Contact**
+
+The navigation should remain simple and responsive.
+
+On mobile, use a clean hamburger/mobile navigation rather than allowing the navigation to become crowded.
+
+---
+
+# 5. Hero Section
+
+The first viewport must immediately communicate:
+
+**ALLU SURYA NAGA SAI TARUN**
+
+**Java Software Engineer**
+
+Supporting positioning statement:
+
+> Java developer focused on Core Java, OOP, JDBC, SQL, backend development, and building maintainable software through hands-on projects.
+
+Show clear primary actions:
+
+**View Resume**
+
+**Download Resume**
+
+**View GitHub**
+
+**LinkedIn**
+
+The GitHub and LinkedIn links must use the following public profiles:
+
+GitHub:
+https://github.com/saitarunallu
+
+LinkedIn:
+https://www.linkedin.com/in/saitarunallu/
+
+Include a concise location/contact indication:
+
+**Tuni, Andhra Pradesh, India**
+
+Avoid making the hero unnecessarily large. The visitor should be able to understand my profile immediately.
+
+---
+
+# 6. About Section
+
+Create a professional introduction based on my actual background.
+
+Include:
+
+* MCA graduate from Andhra University
+* Java development focus
+* Core Java and OOP foundation
+* JDBC and MySQL experience
+* Backend application development
+* Hands-on project development
+* Problem-solving and analytical abilities
+* Interest in writing clean, modular and maintainable code
+* Previous professional experience in customer/banking operations and digital consulting
+
+Do not exaggerate experience or claim technologies that are not listed in my provided profile.
+
+The About section should explain my transition into software engineering in a positive and credible way without unnecessarily highlighting the career gap.
+
+---
+
+# 7. Skills Section
+
+Organize technologies into useful categories instead of displaying one giant list.
+
+### Programming
+
+* Java
+* SQL
+
+### Core Java
+
+* OOP
+* Collections Framework
+* Exception Handling
+* File Handling
+* Multithreading
+* Lambda Expressions
+* Stream API
+* Generics
+* Arrays
+* Strings
+* Wrapper Classes
+* Enums
+* Interfaces
+* Abstract Classes
+
+### Database / Backend
+
+* JDBC
+* MySQL
+* SQL
+* PreparedStatement
+* CRUD Operations
+* Transactions
+
+### Frontend
+
+* HTML5
+* CSS3
+* Bootstrap
+* Responsive Web Design
+* Flexbox
+
+### Tools
+
+* Git
+* IntelliJ IDEA
+* Eclipse
+* VS Code
+
+### Engineering Concepts
+
+* Data Structures
+* Algorithms
+* Debugging
+* Input Validation
+* Clean Code
+* Modular Programming
+
+Do not assign fake percentages such as "Java — 95%".
+
+---
+
+# 8. Projects Section
+
+Projects are one of the most important sections of the website.
+
+Display projects in a way that allows recruiters to quickly understand:
+
+* What the project does
+* Technologies used
+* Important features
+* Engineering concepts demonstrated
+* GitHub/source-code availability where applicable
+
+Prioritize projects according to relevance to the Java Software Engineer target.
+
+### Project 1 — Banking Management System
+
+Technologies:
+Java, JDBC, MySQL, OOP
+
+Features:
+
+* Account creation
+* Authentication
+* Deposits
+* Withdrawals
+* Fund transfers
+* Balance enquiry
+* Transaction history
+* Input validation
+* Exception handling
+* DAO-based database organization
+* PreparedStatement-based database operations
+
+GitHub:
+
+https://github.com/saitarunallu/java-banking-management-system
+
+This should be treated as the **featured project**.
+
+### Project 2 — Student Management System
+
+Technologies:
+
+Java, JDBC, MySQL
+
+Features:
+
+* Student registration
+* Search
+* Update
+* Delete
+* Validation
+* Persistent database storage
+
+### Project 3 — Library Management System
+
+Technologies:
+
+Java, JDBC, MySQL
+
+Features:
+
+* Book management
+* Member management
+* Book issue
+* Book return
+* Search
+* Fine calculation
+
+### Project 4 — Employee Management System
+
+Technologies:
+
+Java, JDBC, MySQL
+
+Features:
+
+* Employee CRUD
+* Employee search
+* Department management
+* Salary updates
+* Validation
+* Layered architecture
+
+### Project 5 — Expense Tracker
+
+Technologies:
+
+Java, Collections Framework, Stream API, Lambda Expressions
+
+Features:
+
+* Daily expense recording
+* Monthly reports
+* Category-wise reports
+* Filtering
+* Data processing using Streams
+* Collections-based in-memory management
+
+### Project 6 — Custom Java Collections Framework
+
+Technologies:
+
+Core Java
+
+Implemented:
+
+* Custom ArrayList
+* Custom LinkedList
+* Custom HashMap
+* Custom Stack
+* Custom Queue
+
+Concepts explored:
+
+* Dynamic resizing
+* Hashing
+* Collision handling
+* Linked-node structures
+* Collection internals
+* Modular testing
+
+This project should strongly communicate **understanding of Java internals and data structures**, rather than simply presenting it as another CRUD project.
+
+---
+
+# 9. GitHub Integration
+
+Include a dedicated GitHub area or project links.
+
+Use the actual public GitHub profile:
+
+https://github.com/saitarunallu
+
+Where repository links are known, link directly to the repository.
+
+Do not fabricate repositories.
+
+For example:
+
+**Java Banking Management System**
+https://github.com/saitarunallu/java-banking-management-system
+
+Use external links with appropriate `target="_blank"` and security-conscious `rel` attributes.
+
+Do not build a complicated dynamic GitHub API integration unless there is a compelling reason. Since this is a static Netlify site, prioritize reliability and performance.
+
+---
+
+# 10. Professional Experience
+
+Create a clean timeline or structured experience section.
+
+### Concentrix
+
+**Associate**
+
+May 2022 – Aug 2023
+
+Include:
+
+* Supported banking customers with account-related queries
+* Worked in a high-volume environment
+* Developed analytical and problem-solving skills
+* Gained exposure to banking workflows and customer operations
+* Strengthened communication skills
+
+### Just Dial
+
+**Certified Internet Consultant**
+
+Oct 2021 – May 2022
+
+Include:
+
+* Consulted businesses on digital products and technology solutions
+* Conducted product demonstrations
+* Gathered customer requirements
+* Developed client relationship and communication skills
+
+Do not attempt to portray these positions as software-development roles.
+
+Instead, frame the transferable skills professionally.
+
+---
+
+# 11. Education
+
+### Master of Computer Applications (MCA)
+
+**Andhra University**
+
+2024 – 2026
+
+**CGPA: 9.10 / 10**
+
+### Bachelor of Science (MECS)
+
+**Aditya Degree College**
+
+2018 – 2023
+
+**CGPA: 7.13 / 10**
+
+Display education in a clean, recruiter-friendly format.
+
+---
+
+# 12. Certifications
+
+Display:
+
+* Java Programming Masterclass — Udemy
+* Java Programming — SoloLearn
+* Build Your Own Static Website — NxtWave Intensive
+* Build Your Own Responsive Website — NxtWave Intensive
+
+Do not invent certificate IDs or verification URLs.
+
+---
+
+# 13. Achievements
+
+Include:
+
+* First Prize — College Science Day PPT Competition
+* Second Prize — State-Level Electronics Project Competition
+* Participant — National Service Scheme (NSS) Camp
+
+Use concise presentation rather than oversized achievement cards.
+
+---
+
+# 14. Resume Experience
+
+Create a dedicated **Resume** section.
+
+The website must provide two clearly visible actions:
+
+### View Online Resume
+
+Open the resume in a clean browser-friendly document viewer or dedicated resume page.
+
+### Download Resume
+
+Provide a direct PDF download.
+
+The resume must be available as an actual PDF asset in the static project.
+
+Suggested structure:
+
+`/assets/resume/Allu-Surya-Naga-Sai-Tarun-Resume.pdf`
+
+The online resume experience should work on desktop and mobile.
+
+Do not force users to download the PDF merely to view the resume.
+
+---
+
+# 15. Contact Section
+
+Create a simple professional contact area.
+
+Include:
+
+**Email:** [saitarun1932@gmail.com](mailto:saitarun1932@gmail.com)
+
+**Location:** Tuni, Andhra Pradesh, India
+
+LinkedIn:
+
+https://www.linkedin.com/in/saitarunallu/
+
+GitHub:
+
+https://github.com/saitarunallu
+
+The email should use a clickable `mailto:` link.
+
+Do not add an unnecessary backend contact form because this is intended to remain a static site.
+
+A simple "Email Me" CTA is preferable.
+
+---
+
+# 16. Footer
+
+Footer should contain:
+
+**Sai Tarun Allu**
+
+Java Software Engineer
+
+GitHub | LinkedIn | Email
+
+Copyright notice.
+
+Keep it minimal.
+
+---
+
+# 17. Responsive UX Requirements
+
+The site must be designed mobile-first and tested at:
+
+* Mobile
+* Tablet
+* Laptop
+* Large desktop
+
+Pay particular attention to:
+
+* Navigation
+* Hero spacing
+* Typography scaling
+* Project cards
+* Resume buttons
+* Timeline layout
+* Touch targets
+* Horizontal overflow
+* PDF viewing
+* Footer layout
+
+There must be **no horizontal scrolling on mobile**.
+
+Buttons and links must have sufficiently large touch targets.
+
+---
+
+# 18. Accessibility
+
+Implement proper accessibility practices:
+
+* Semantic HTML
+* Correct heading hierarchy
+* Accessible navigation
+* Keyboard navigation
+* Visible focus states
+* Appropriate aria labels where necessary
+* Sufficient color contrast
+* Alt text for meaningful images
+* Decorative graphics marked appropriately
+* Reduced-motion consideration
+
+Do not use animation that interferes with usability.
+
+---
+
+# 19. Performance
+
+This is a static portfolio and should be extremely fast.
+
+Optimize for:
+
+* Minimal JavaScript
+* Optimized images
+* Lazy-loading where appropriate
+* No unnecessary libraries
+* No heavy animation packages unless genuinely useful
+* Proper font loading
+* Minimal CSS/JS bundle size
+* Browser caching
+* Compression-friendly assets
+
+Avoid adding a framework solely because it is fashionable.
+
+Choose the implementation stack based on **performance, maintainability, and Netlify compatibility**.
+
+For a simple portfolio, a lightweight static implementation is preferred.
+
+---
+
+# 20. SEO
+
+Implement proper on-page SEO.
+
+Use:
+
+### Title
+
+**Sai Tarun Allu | Java Software Engineer**
+
+### Meta Description
+
+Write a concise professional description describing me as a Java Software Engineer focused on Core Java, OOP, JDBC, SQL, backend development, and software projects.
+
+Also include:
+
+* Canonical URL
+* Open Graph metadata
+* Twitter/X card metadata
+* Proper semantic headings
+* Sitemap
+* robots.txt
+* Favicon
+* Descriptive page metadata
+
+Use:
+
+**https://saitarunallu.com**
+
+as the canonical site URL.
+
+Do not stuff keywords unnaturally.
+
+---
+
+# 21. Structured Data
+
+Where appropriate, add valid schema markup for a personal professional profile, such as `Person` and relevant professional information.
+
+Only include information that is actually provided.
+
+Do not fabricate employers, job titles, locations, or achievements.
+
+---
+
+# 22. Netlify Deployment Requirements
+
+The entire website must be optimized for **Netlify static deployment**.
+
+Requirements:
+
+* No server-side dependency
+* No database required
+* No runtime backend required
+* All assets bundled with the site
+* Production build must be generated cleanly
+* Correct relative/absolute asset paths
+* Proper favicon and metadata
+* PDF resume accessible after deployment
+* SPA routing should only be used if actually necessary
+* If SPA routing is used, configure `_redirects` appropriately
+
+Include a clean Netlify-ready structure.
+
+Example:
+
+```text
+/
+├── index.html
+├── assets/
+│   ├── images/
+│   ├── icons/
+│   └── resume/
+│       └── Allu-Surya-Naga-Sai-Tarun-Resume.pdf
+├── favicon
+├── robots.txt
+├── sitemap.xml
+└── ...
+```
+
+If a framework/build tool is used, include the proper Netlify build configuration.
+
+---
+
+# 23. Domain Consideration
+
+The final website is intended for:
+
+**saitarunallu.com**
+
+Make sure the project is production-ready for custom-domain deployment.
+
+Do not hard-code localhost URLs anywhere.
+
+---
+
+# 24. Content Accuracy
+
+Use the information supplied in this specification.
+
+Do not invent:
+
+* Professional software-development employment
+* Years of Java experience
+* Company names
+* Salary figures
+* Job titles
+* Certification credentials
+* GitHub projects
+* Client work
+* User counts
+* Production metrics
+* "Expert" or "Senior" claims
+
+The portfolio should be strong because of **clear presentation and real technical work**, not inflated claims.
+
+---
+
+# 25. Final QA Before Delivery
+
+Before considering the website complete, perform a full review.
+
+Check:
+
+### Design
+
+* Consistent typography
+* Consistent spacing
+* Consistent buttons
+* Consistent cards
+* Strong visual hierarchy
+* No awkward empty areas
+* No overcrowded sections
+
+### Content
+
+* No spelling mistakes
+* No duplicated content
+* No outdated wording
+* No fabricated information
+* Correct links
+* Correct dates
+* Correct CGPAs
+
+### Functionality
+
+* All navigation links work
+* GitHub works
+* LinkedIn works
+* Email link works
+* Resume opens
+* Resume downloads
+* External links work
+* Mobile navigation works
+
+### Responsive
+
+* Mobile
+* Tablet
+* Desktop
+* Large screen
+
+### Technical
+
+* Production build succeeds
+* No console errors
+* No broken assets
+* No missing images
+* No broken PDF
+* Netlify deployment works
+* Custom domain compatible
+
+### SEO
+
+* Title
+* Description
+* Canonical URL
+* Open Graph
+* Favicon
+* Sitemap
+* robots.txt
+* Structured data
+
+---
+
+# 26. Most Important Design Principle
+
+Do not build this as a generic "developer portfolio template."
+
+The website should communicate this story:
+
+**Java-focused software engineer → strong Core Java/OOP foundation → practical JDBC/MySQL/backend projects → understanding of Java internals/data structures → professional communication and banking-domain exposure → actively building toward a software engineering career.**
+
+The design should reinforce that positioning visually and structurally.
+
+The first implementation should be treated as a **complete product design**, not a collection of disconnected sections. Plan the information architecture and UI/UX first, then implement the site consistently so that major redesign/rework is unnecessary.
