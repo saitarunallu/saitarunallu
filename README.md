@@ -4,86 +4,87 @@
 
 Java Software Engineer
 
-Core Java • OOP • JDBC • MySQL • SQL • Backend Development
+Core Java · OOP · JDBC · MySQL · SQL · Backend Development
 
 <p>
-  <a href="https://saitarunallu.com/"><strong>🌐 Portfolio</strong></a>
-  &nbsp; • &nbsp;
-  <a href="https://www.linkedin.com/in/saitarunallu/"><strong>💼 LinkedIn</strong></a>
-  &nbsp; • &nbsp;
-  <a href="https://github.com/saitarunallu"><strong>🐙 GitHub</strong></a>
+  <a href="https://saitarunallu.com">🌐 Portfolio</a> ·
+  <a href="https://www.linkedin.com/in/saitarunallu/">💼 LinkedIn</a> ·
+  <a href="mailto:saitarun1932@gmail.com">📧 Email</a>
 </p>
 
 <p>
-  <a href="https://saitarunallu.com/">
-    <img src="https://img.shields.io/badge/Portfolio-saitarunallu.com-111827?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Portfolio">
-  </a>
-  <a href="https://www.linkedin.com/in/saitarunallu/">
-    <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
-  </a>
+  <img src="https://img.shields.io/badge/Java-Developer-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java Developer">
+  <img src="https://img.shields.io/badge/MCA-9.10%2F10-4B5563?style=for-the-badge" alt="MCA CGPA">
+  <img src="https://img.shields.io/badge/Focus-Backend%20Development-2563EB?style=for-the-badge" alt="Backend Development">
 </p>
 
 </div>
 
-🚀 About This Project
+👨‍💻 About Me
 
-This repository contains my personal developer portfolio website, built to present my technical profile, Java projects, professional experience, education, certifications, achievements, and resume in a clean, responsive, recruiter-friendly interface.
+I'm Allu Surya Naga Sai Tarun, a Java Software Engineer focused on building practical, maintainable applications with Core Java, Object-Oriented Programming, JDBC, MySQL, and SQL.
 
-The portfolio focuses on my journey toward becoming a Java Software Engineer, with emphasis on practical Core Java, database programming, object-oriented design, and backend development.
+I enjoy understanding how things work internally—not just using APIs. My projects include custom implementations of common Java collections such as ArrayList, LinkedList, and HashMap, alongside database-driven applications built with JDBC and MySQL.
 
-✨ What's Inside
+🎯 Career focus: Java Software Engineering & Backend Development
 
-Section
+☕ Primary language: Java
 
-Details
+🗄️ Database: MySQL / SQL
 
-👨‍💻 Profile
+🔌 Backend: JDBC, DAO-based application design
 
-Professional introduction and Java-focused career profile
+🧠 Core interests: OOP, Collections, Data Structures, Algorithms, Multithreading
 
-🛠️ Technical Skills
+📚 Currently strengthening: Java, DSA, backend development and software engineering fundamentals
 
-Core Java, JDBC, MySQL, SQL, frontend and development tools
+🌐 Portfolio: saitarunallu.com
 
-🚀 Projects
+🛠️ Tech Stack
 
-Java applications and custom data-structure implementations
+☕ Java
 
-💼 Experience
+<p>
+<img src="https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white">
+<img src="https://img.shields.io/badge/OOP-374151?style=flat-square">
+<img src="https://img.shields.io/badge/Collections-374151?style=flat-square">
+<img src="https://img.shields.io/badge/Multithreading-374151?style=flat-square">
+<img src="https://img.shields.io/badge/Streams-374151?style=flat-square">
+<img src="https://img.shields.io/badge/Lambda-374151?style=flat-square">
+<img src="https://img.shields.io/badge/Generics-374151?style=flat-square">
+</p>
 
-Concentrix and Just Dial experience
+🗄️ Database & Backend
 
-🎓 Education
+<p>
+<img src="https://img.shields.io/badge/JDBC-2563EB?style=flat-square">
+<img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white">
+<img src="https://img.shields.io/badge/SQL-2563EB?style=flat-square">
+<img src="https://img.shields.io/badge/PreparedStatement-374151?style=flat-square">
+<img src="https://img.shields.io/badge/CRUD-374151?style=flat-square">
+<img src="https://img.shields.io/badge/Transactions-374151?style=flat-square">
+</p>
 
-MCA and B.Sc. (MECS)
+🌐 Web & Tools
 
-📜 Certifications
+<p>
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white">
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white">
+<img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat-square&logo=bootstrap&logoColor=white">
+<img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white">
+<img src="https://img.shields.io/badge/IntelliJ_IDEA-000000?style=flat-square&logo=intellijidea&logoColor=white">
+<img src="https://img.shields.io/badge/VS_Code-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white">
+</p>
 
-Java and web-development certifications
-
-🏆 Achievements
-
-Academic and extracurricular achievements
-
-📄 Resume
-
-Online resume with PDF download option
-
-🔗 Links
-
-GitHub and LinkedIn profiles
-
-🧩 Featured Projects
+🚀 Featured Projects
 
 🏦 Banking Management System
 
-A Java banking application covering account creation and core banking operations.
+Java · JDBC · MySQL · OOP
 
-Tech Stack
+A database-driven banking application designed around core banking operations.
 
-Java JDBC MySQL OOP
-
-Implemented
+Implemented:
 
 Account creation and authentication
 
@@ -101,35 +102,23 @@ Exception handling
 
 DAO-based database organization
 
-PreparedStatement for database operations
+Secure parameterized SQL using PreparedStatement
 
 🧱 Custom Java Collections Framework
 
-Custom implementations created to understand the internal mechanics of common Java collection data structures.
-
-Tech Stack
-
 Core Java
 
-Implemented
+Built custom versions of commonly used collection data structures to understand their internal mechanics rather than treating them as black boxes.
 
-ArrayList
+Implemented:
 
-LinkedList
+ArrayList · LinkedList · HashMap · Stack · Queue
 
-HashMap
+Concepts explored:
 
-Stack
+Dynamic array resizing
 
-Queue
-
-Concepts Explored
-
-Dynamic resizing
-
-Hashing
-
-Collision handling
+Hashing and collision handling
 
 Linked-node structures
 
@@ -137,63 +126,27 @@ Collection internals
 
 Modular testing
 
-📦 Additional Projects
+📊 Other Projects
 
 Project
 
-Technologies
+Stack
 
 🎓 Student Management System
 
-Java • JDBC • MySQL
+Java · JDBC · MySQL
 
 📚 Library Management System
 
-Java • JDBC • MySQL
+Java · JDBC · MySQL
 
 👥 Employee Management System
 
-Java • JDBC • MySQL
+Java · JDBC · MySQL
 
 💰 Expense Tracker
 
-Java • Collections • Stream API • Lambda Expressions
-
-🛠️ Technical Skills
-
-☕ Programming & Core Java
-
-Java OOP Collections Framework Exception Handling File Handling Multithreading Lambda Expressions Stream API Generics Arrays Strings Wrapper Classes Enums Interfaces Abstract Classes
-
-🗄️ Database & Backend
-
-JDBC MySQL SQL PreparedStatement CRUD Transactions
-
-🌐 Frontend
-
-HTML5 CSS3 Bootstrap Responsive Web Design Flexbox
-
-🔧 Tools
-
-Git IntelliJ IDEA Eclipse VS Code
-
-🧠 Engineering Concepts
-
-Data Structures Algorithms Debugging Input Validation Clean Code Modular Programming
-
-🎓 Education
-
-Master of Computer Applications (MCA)
-
-Andhra University · 2024–2026
-
-CGPA: 9.10 / 10
-
-Bachelor of Science (MECS)
-
-Aditya Degree College · 2018–2023
-
-CGPA: 7.13 / 10
+Java · Collections · Streams · Lambda
 
 💼 Professional Experience
 
@@ -201,21 +154,31 @@ Concentrix — Associate
 
 May 2022 – August 2023
 
-Supported banking customers with account-related queries in a high-volume environment
+Supported banking customers with account-related queries in a high-volume environment.
 
-Strengthened analytical thinking, communication, and problem-solving skills
+Developed analytical thinking, communication and problem-solving skills.
 
-Gained exposure to banking workflows and customer operations
+Gained exposure to banking workflows and customer operations.
 
 Just Dial — Certified Internet Consultant
 
 October 2021 – May 2022
 
-Consulted businesses on digital products and technology solutions
+Consulted businesses on digital products and technology solutions.
 
-Conducted product demonstrations and gathered customer requirements
+Conducted product demonstrations and gathered customer requirements.
 
-Developed client relationship and communication skills
+Developed client relationship and communication skills.
+
+🎓 Education
+
+Master of Computer Applications (MCA)
+Andhra University · 2024–2026
+CGPA: 9.10 / 10
+
+Bachelor of Science (MECS)
+Aditya Degree College · 2018–2023
+CGPA: 7.13 / 10
 
 📜 Certifications
 
@@ -235,66 +198,68 @@ Developed client relationship and communication skills
 
 🤝 Participant — National Service Scheme (NSS) Camp
 
-📄 Resume
+📈 What I'm Working Toward
 
-The portfolio provides both:
+My goal is to build a strong foundation as a Java Software Engineer and progress toward production-grade backend development.
 
-Online resume — browser-friendly version
+Current focus areas:
 
-PDF resume — downloadable version
+Core Java
+   ↓
+OOP & Design Principles
+   ↓
+Collections + DSA
+   ↓
+JDBC + SQL + MySQL
+   ↓
+Backend Development
+   ↓
+Spring / Spring Boot
+   ↓
+Production-Ready Java Applications
 
-👉 View my portfolio & resume →
-
-🔗 Connect With Me
+📄 Resume & Portfolio
 
 <div align="center">
 
-Platform
+Explore my work
 
-Link
+<a href="https://saitarunallu.com">
+  <img src="https://img.shields.io/badge/🌐%20VIEW%20PORTFOLIO-111827?style=for-the-badge" alt="View Portfolio">
+</a>
+<a href="https://saitarunallu.com">
+  <img src="https://img.shields.io/badge/📄%20ONLINE%20RESUME-2563EB?style=for-the-badge" alt="Online Resume">
+</a>
 
-🌐 Portfolio
+<br><br>
 
-saitarunallu.com
-
-💼 LinkedIn
-
-linkedin.com/in/saitarunallu
-
-🐙 GitHub
-
-github.com/saitarunallu
-
-📧 Email
-
-saitarun1932@gmail.com
+<a href="https://www.linkedin.com/in/saitarunallu/">
+  <img src="https://img.shields.io/badge/LINKEDIN-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
+</a>
+<a href="https://github.com/saitarunallu">
+  <img src="https://img.shields.io/badge/GITHUB-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+</a>
 
 </div>
 
-🚀 Deployment
+📬 Contact
 
-The portfolio is a static website deployed on Vercel with the custom domain:
+Sai Tarun Allu
+📍 Tuni, Andhra Pradesh, India
+📧 saitarun1932@gmail.com
 
-https://saitarunallu.com
+🌐 Portfolio
 
-The project is designed to remain:
+💼 LinkedIn
 
-⚡ Lightweight
-
-📱 Responsive
-
-♿ Accessible
-
-🔍 SEO-friendly
-
-🧩 Easy to maintain
+🐙 GitHub
 
 <div align="center">
 
-⭐ Thanks for visiting!
+Thanks for visiting my profile! 👋
 
-Built and maintained by Sai Tarun Allu
+Java Software Engineer · Backend Development · Continuous Learning
 
-<a href="https://saitarunallu.com/">Visit Portfolio →</a>
+<sub>Built and maintained by Sai Tarun Allu</sub>
 
 </div>
