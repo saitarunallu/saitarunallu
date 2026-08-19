@@ -227,7 +227,7 @@ Explore my work
 <a href="https://saitarunallu.com">
   <img src="https://img.shields.io/badge/🌐%20VIEW%20PORTFOLIO-111827?style=for-the-badge" alt="View Portfolio">
 </a>
-<a href="https://saitarunallu.com">
+<a href="https://saitarunallu.com/resume">
   <img src="https://img.shields.io/badge/📄%20ONLINE%20RESUME-2563EB?style=for-the-badge" alt="Online Resume">
 </a>
 
