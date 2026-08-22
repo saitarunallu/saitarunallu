@@ -103,11 +103,11 @@ Hands-on implementations of common collection data structures to understand thei
 ## 🎓 Education
 
 **Master of Computer Applications (MCA)**  
-Andhra University · 2024–2026  
+Andhra University · 2026  
 **CGPA: 9.10 / 10**
 
 **Bachelor of Science (MECS)**  
-Aditya Degree College · 2018–2023  
+Aditya Degree College · 2023  
 **CGPA: 7.13 / 10**
 
 ---
