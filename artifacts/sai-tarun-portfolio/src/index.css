@@ -680,7 +680,11 @@
   .resume-page { padding: 0; background: hsl(var(--card)); }
   .resume-toolbar { display: none; }
   .resume-sheet { width: 100%; padding: 0; border: 0; box-shadow: none; }
-  .resume-section { break-inside: avoid; }
-  .resume-project-list { gap: 9px; }
+  .resume-section { break-inside: auto; }
+  .resume-section h2 { break-after: avoid; page-break-after: avoid; }
+  .resume-project-list { display: block; }
+  .resume-project { break-inside: avoid; page-break-inside: avoid; margin-bottom: 9px; }
+  .resume-experience, .resume-education { break-inside: avoid; page-break-inside: avoid; }
+  .resume-columns { break-inside: avoid; page-break-inside: avoid; }
   .resume-section { margin-top: 17px; }
 }
