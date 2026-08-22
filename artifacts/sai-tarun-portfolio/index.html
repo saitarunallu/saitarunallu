@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta name="author" content="Allu Surya Naga Sai Tarun" />
+    <meta name="theme-color" content="#f4f1e9" />
+    <meta name="color-scheme" content="light" />
     <title>Sai Tarun Allu | Java Software Engineer</title>
     <meta name="description" content="Sai Tarun Allu is a Java Software Engineer focused on Core Java, OOP, JDBC, MySQL, backend development, and practical software projects." />
     <meta name="robots" content="index, follow" />
@@ -12,30 +15,56 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://saitarunallu.com/" />
     <meta property="og:site_name" content="Sai Tarun Allu" />
+    <meta property="og:locale" content="en_IN" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Sai Tarun Allu | Java Software Engineer" />
     <meta name="twitter:description" content="Core Java, OOP, JDBC, MySQL, backend development, and practical software projects from Tuni, Andhra Pradesh." />
     <meta name="twitter:url" content="https://saitarunallu.com/" />
+    <meta name="twitter:creator" content="@saitarunallu" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Allu Surya Naga Sai Tarun",
-        "jobTitle": "Java Software Engineer",
-        "url": "https://saitarunallu.com/",
-        "email": "mailto:saitarun1932@gmail.com",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Tuni",
-          "addressRegion": "Andhra Pradesh",
-          "addressCountry": "IN"
-        },
-        "sameAs": [
-          "https://github.com/saitarunallu",
-          "https://www.linkedin.com/in/saitarunallu/"
-        ],
-        "knowsAbout": ["Java", "Object-Oriented Programming", "JDBC", "MySQL", "Backend Development"]
+        "@graph": [
+          {
+            "@type": "ProfilePage",
+            "@id": "https://saitarunallu.com/#profile",
+            "url": "https://saitarunallu.com/",
+            "name": "Sai Tarun Allu | Java Software Engineer",
+            "isPartOf": { "@id": "https://saitarunallu.com/#website" },
+            "about": { "@id": "https://saitarunallu.com/#person" },
+            "mainEntity": { "@id": "https://saitarunallu.com/#person" }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://saitarunallu.com/#website",
+            "url": "https://saitarunallu.com/",
+            "name": "Sai Tarun Allu",
+            "description": "Portfolio and online resume for Sai Tarun Allu, a Java Software Engineer.",
+            "inLanguage": "en-IN",
+            "publisher": { "@id": "https://saitarunallu.com/#person" }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://saitarunallu.com/#person",
+            "name": "Allu Surya Naga Sai Tarun",
+            "alternateName": "Sai Tarun Allu",
+            "jobTitle": "Java Software Engineer",
+            "url": "https://saitarunallu.com/",
+            "email": "mailto:saitarun1932@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Tuni",
+              "addressRegion": "Andhra Pradesh",
+              "addressCountry": "IN"
+            },
+            "sameAs": [
+              "https://github.com/saitarunallu",
+              "https://www.linkedin.com/in/saitarunallu/"
+            ],
+            "knowsAbout": ["Java", "Object-Oriented Programming", "JDBC", "MySQL", "Backend Development"]
+          }
+        ]
       }
     </script>
   </head>

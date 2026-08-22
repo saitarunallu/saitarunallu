@@ -449,17 +449,46 @@ function Home() {
 
 function Resume() {
   useEffect(() => {
-    document.title = 'Resume — Sai Tarun Allu | Java Software Engineer';
+    const title = 'Resume — Sai Tarun Allu | Java Software Engineer';
+    const descriptionContent = 'Online resume for Allu Surya Naga Sai Tarun, a Java Software Engineer focused on Core Java, OOP, JDBC, MySQL, backend development, and software projects.';
+    const url = 'https://saitarunallu.com/resume';
+    document.title = title;
     const description = document.querySelector('meta[name="description"]');
     const canonical = document.querySelector('link[rel="canonical"]');
-    const previousDescription = description?.getAttribute('content') ?? '';
-    const previousCanonical = canonical?.getAttribute('href') ?? '';
-    description?.setAttribute('content', 'Online resume for Allu Surya Naga Sai Tarun, a Java Software Engineer focused on Core Java, OOP, JDBC, MySQL, backend development, and software projects.');
-    canonical?.setAttribute('href', 'https://saitarunallu.com/resume');
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    const twitterUrl = document.querySelector('meta[name="twitter:url"]');
+    const previous = {
+      description: description?.getAttribute('content') ?? '',
+      canonical: canonical?.getAttribute('href') ?? '',
+      ogTitle: ogTitle?.getAttribute('content') ?? '',
+      ogDescription: ogDescription?.getAttribute('content') ?? '',
+      ogUrl: ogUrl?.getAttribute('content') ?? '',
+      twitterTitle: twitterTitle?.getAttribute('content') ?? '',
+      twitterDescription: twitterDescription?.getAttribute('content') ?? '',
+      twitterUrl: twitterUrl?.getAttribute('content') ?? '',
+    };
+    description?.setAttribute('content', descriptionContent);
+    canonical?.setAttribute('href', url);
+    ogTitle?.setAttribute('content', title);
+    ogDescription?.setAttribute('content', descriptionContent);
+    ogUrl?.setAttribute('content', url);
+    twitterTitle?.setAttribute('content', title);
+    twitterDescription?.setAttribute('content', descriptionContent);
+    twitterUrl?.setAttribute('content', url);
     return () => {
       document.title = 'Sai Tarun Allu | Java Software Engineer';
-      description?.setAttribute('content', previousDescription);
-      canonical?.setAttribute('href', previousCanonical);
+      description?.setAttribute('content', previous.description);
+      canonical?.setAttribute('href', previous.canonical);
+      ogTitle?.setAttribute('content', previous.ogTitle);
+      ogDescription?.setAttribute('content', previous.ogDescription);
+      ogUrl?.setAttribute('content', previous.ogUrl);
+      twitterTitle?.setAttribute('content', previous.twitterTitle);
+      twitterDescription?.setAttribute('content', previous.twitterDescription);
+      twitterUrl?.setAttribute('content', previous.twitterUrl);
     };
   }, []);
 
