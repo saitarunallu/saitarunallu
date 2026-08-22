@@ -1,0 +1,1 @@
+- [Preview port routing](preview-port-routing.md) — keep the imported Vite portfolio aligned with the workspace preview port.
