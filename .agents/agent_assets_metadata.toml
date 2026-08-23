@@ -1,0 +1,30 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "i4ocb5ovovyDyqZQpsxYo"
+uri = "file://artifacts/sai-tarun-portfolio/public/favicon.svg"
+type = "image"
+title = "New Sai Tarun favicon"
+description = "Updated browser tab icon with the portfolio's ST monogram color palette."
+logical_id = "e4f5ae71-df4d-479f-b3b0-c28a7bb008a8"
+content_hash = "sha256:7fbd21e7fa925b65254fcd358138b5178ae031b99f93fe2c8b6036f685bc38fb"
+size = 558
+mtime_ms = 1787515237545
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:725c47e2-3a38-4de3-8854-745fc78a570d/e4f5ae71-df4d-479f-b3b0-c28a7bb008a8/778b8cc9-b04a-4b52-87f3-4bb970aec10d"
+storage_version_token = "1787515616208045"
+content_type = "image/svg+xml"
+
+[[outputs]]
+id = "tLz_NfiMnGmN-K1vq3LQw"
+uri = "file://artifacts/sai-tarun-portfolio/public/previews/favicon-preview.png"
+type = "image"
+title = "New favicon preview"
+description = "Large preview of the updated browser tab icon."
+logical_id = "1480738a-297e-4516-b994-ba9944301496"
+content_hash = "sha256:93d1c38ab409b4a6e92d3cf24223d8571577287ccd5e4518243e8236e370039f"
+size = 79177
+mtime_ms = 1787515629050
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:725c47e2-3a38-4de3-8854-745fc78a570d/1480738a-297e-4516-b994-ba9944301496/0090d913-81b0-4b0f-8c22-d7c56b3dd5b2"
+storage_version_token = "1787515636734542"
+content_type = "image/png"
