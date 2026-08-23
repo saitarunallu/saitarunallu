@@ -1,1 +1,2 @@
 - [Preview port routing](preview-port-routing.md) — keep the imported Vite portfolio aligned with the workspace preview port.
+- [Imported app registration](imported-app-registration.md) — imported repositories may need artifact registration restored before their preview workflow can be restarted.
