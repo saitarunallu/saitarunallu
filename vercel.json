@@ -4,5 +4,12 @@
   "installCommand": "pnpm install --frozen-lockfile",
   "buildCommand": "pnpm --filter @workspace/sai-tarun-portfolio build",
   "outputDirectory": "artifacts/sai-tarun-portfolio/dist/public",
+  "redirects": [
+    {
+      "source": "/resume/tarun resume.pdf",
+      "destination": "/Allu_Surya_Tarun_Resume.pdf",
+      "permanent": true
+    }
+  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
