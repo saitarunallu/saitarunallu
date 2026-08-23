@@ -688,3 +688,59 @@
   .resume-columns { break-inside: avoid; page-break-inside: avoid; }
   .resume-section { margin-top: 17px; }
 }
+
+.project-title-link, .seo-project-list a, .seo-related-links a {
+  color: inherit;
+  text-decoration: none;
+}
+.project-title-link:hover, .seo-project-list a:hover, .seo-related-links a:hover {
+  color: hsl(var(--accent));
+}
+.seo-page-toolbar {
+  width: min(100%, 960px);
+  margin: 0 auto 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+.seo-page-sheet { min-height: 550px; }
+.seo-page-sheet h1 {
+  color: hsl(var(--primary));
+  font: 600 clamp(2.4rem, 6vw, 4.8rem)/.96 var(--font-display);
+  letter-spacing: -.07em;
+  margin: 12px 0 18px;
+}
+.seo-lede {
+  max-width: 720px;
+  color: hsl(var(--muted-foreground));
+  font-size: 16px;
+  line-height: 1.65;
+}
+.seo-copy, .seo-list p, .seo-list li {
+  max-width: 790px;
+  color: hsl(var(--muted-foreground));
+  font-size: 13px;
+  line-height: 1.7;
+}
+.seo-list { margin-top: 35px; display: grid; gap: 20px; }
+.seo-list section { border-top: 1px solid hsl(var(--border)); padding-top: 15px; }
+.seo-list h2, .seo-project-list h2 {
+  color: hsl(var(--primary));
+  font: 600 20px var(--font-display);
+  margin: 0 0 7px;
+}
+.seo-list p { margin: 0; }
+.seo-tech { color: hsl(var(--accent)) !important; font: 11px var(--app-font-mono) !important; }
+.seo-links { display: grid; gap: 12px; margin-top: 30px; }
+.seo-links a { color: hsl(var(--primary)); font: 500 13px var(--app-font-mono); }
+.seo-project-list { display: grid; gap: 25px; margin-top: 35px; }
+.seo-project-list section { border-top: 1px solid hsl(var(--border)); padding-top: 16px; }
+.seo-project-list p { color: hsl(var(--muted-foreground)); font-size: 13px; line-height: 1.6; }
+.seo-project-list a:last-child { display: inline-flex; align-items: center; gap: 5px; color: hsl(var(--accent)); font: 500 11px var(--app-font-mono); }
+.seo-related-links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 45px; padding-top: 18px; border-top: 1px solid hsl(var(--border)); }
+.seo-related-links a { color: hsl(var(--muted-foreground)); font: 500 11px var(--app-font-mono); }
+@media (max-width: 680px) {
+  .seo-page-toolbar { align-items: stretch; flex-direction: column; }
+  .seo-page-toolbar .button-primary { align-self: flex-start; }
+}

@@ -5,7 +5,7 @@ import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import NotFound from '@/pages/not-found';
-import { Link, Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
+import { Link, Route, Switch, useLocation, useParams, Router as WouterRouter } from 'wouter';
 
 const queryClient = new QueryClient();
 const resumePath = '/Allu_Surya_Tarun_Resume.pdf';
@@ -211,7 +211,7 @@ function ProjectCard({ project }: { project: typeof projects[number] }) {
   return (
     <article className={`project-card ${project.featured ? 'featured' : ''}`} data-testid={`card-project-${project.id}`}>
       <span className="project-index">{project.number} / PROJECT</span>
-      <h3>{project.title}</h3>
+       <h3><Link className="project-title-link" href={`/projects/${project.id}`}>{project.title}</Link></h3>
       <p>{project.description}</p>
       <div className="project-tech" aria-label={`${project.title} technologies`}>
         {project.tech.map((technology) => <span key={technology}>{technology}</span>)}
@@ -233,6 +233,133 @@ function ProjectCard({ project }: { project: typeof projects[number] }) {
         </div>
       )}
     </article>
+  );
+}
+
+const publicSections = {
+  about: {
+    label: 'About',
+    title: 'About Sai Tarun Allu',
+    description: 'Meet Sai Tarun Allu, a Java Software Engineer from Tuni, Andhra Pradesh, focused on practical backend development.',
+    paragraphs: [
+      'Allu Surya Naga Sai Tarun is a Java Software Engineer with a strong foundation in Core Java, Object-Oriented Programming, JDBC, MySQL, SQL, and backend application development.',
+      'His approach is grounded in understanding what happens underneath abstractions and building clear, maintainable software around data, business rules, and reliable fundamentals.',
+    ],
+  },
+  skills: {
+    label: 'Skills',
+    title: 'Java Software Engineering Skills',
+    description: 'Core Java, JDBC, MySQL, SQL, backend development, data structures, and software engineering skills.',
+    paragraphs: ['A growing technical toolkit grounded in fundamentals, clean code, validation, modular programming, and hands-on project development.'],
+  },
+  experience: {
+    label: 'Experience',
+    title: 'Professional Experience',
+    description: 'Professional experience in banking operations, customer support, digital products, and client consulting.',
+    paragraphs: ['Experience at Concentrix and Just Dial strengthened analytical thinking, communication, customer understanding, and problem-solving in practical environments.'],
+  },
+  education: {
+    label: 'Education',
+    title: 'Education and Certifications',
+    description: 'Academic background, certifications, and achievements of Java Software Engineer Sai Tarun Allu.',
+    paragraphs: ['Formal learning gives the work its structure, while hands-on projects give that structure a reason to hold.'],
+  },
+  contact: {
+    label: 'Contact',
+    title: 'Contact Sai Tarun Allu',
+    description: 'Contact Sai Tarun Allu about Java software engineering, backend development, and practical application projects.',
+    paragraphs: ['For Java development opportunities, backend projects, or professional conversations, connect by email, phone, GitHub, or LinkedIn.'],
+  },
+} as const;
+
+function usePageMeta(title: string, description: string, path: string) {
+  useEffect(() => {
+    const fullTitle = `${title} | Sai Tarun Allu`;
+    const url = `https://saitarunallu.com${path}`;
+    const selectors = {
+      description: 'meta[name="description"]',
+      canonical: 'link[rel="canonical"]',
+      ogTitle: 'meta[property="og:title"]',
+      ogDescription: 'meta[property="og:description"]',
+      ogUrl: 'meta[property="og:url"]',
+      twitterTitle: 'meta[name="twitter:title"]',
+      twitterDescription: 'meta[name="twitter:description"]',
+      twitterUrl: 'meta[name="twitter:url"]',
+    };
+    const elements = Object.fromEntries(Object.entries(selectors).map(([key, selector]) => [key, document.querySelector(selector)])) as Record<keyof typeof selectors, Element | null>;
+    const previousTitle = document.title;
+    const previous = Object.fromEntries(Object.entries(elements).map(([key, element]) => [key, element?.getAttribute('content') ?? element?.getAttribute('href') ?? '']));
+    document.title = fullTitle;
+    elements.description?.setAttribute('content', description);
+    elements.canonical?.setAttribute('href', url);
+    elements.ogTitle?.setAttribute('content', fullTitle);
+    elements.ogDescription?.setAttribute('content', description);
+    elements.ogUrl?.setAttribute('content', url);
+    elements.twitterTitle?.setAttribute('content', fullTitle);
+    elements.twitterDescription?.setAttribute('content', description);
+    elements.twitterUrl?.setAttribute('content', url);
+    return () => {
+      document.title = previousTitle;
+      Object.entries(elements).forEach(([key, element]) => {
+        if (element) element.setAttribute(key === 'canonical' ? 'href' : 'content', previous[key] ?? '');
+      });
+    };
+  }, [title, description, path]);
+}
+
+function SectionPage() {
+  const { section } = useParams<{ section: string }>();
+  const content = section ? publicSections[section as keyof typeof publicSections] : undefined;
+  usePageMeta(content?.title ?? 'Portfolio', content?.description ?? 'Sai Tarun Allu Java Software Engineer portfolio.', `/${section ?? ''}`);
+  if (!content) return <NotFound />;
+
+  return (
+    <main className="seo-page resume-page">
+      <div className="seo-page-toolbar"><Link href="/" className="resume-back"><ArrowLeft size={15} /> Portfolio</Link><Link href="/resume" className="button-primary">View Resume</Link></div>
+      <article className="seo-page-sheet resume-sheet">
+        <p className="section-kicker">Public profile / {content.label}</p>
+        <h1>{content.title}</h1>
+        <p className="seo-lede">{content.description}</p>
+        {content.paragraphs.map((paragraph) => <p className="seo-copy" key={paragraph}>{paragraph}</p>)}
+        {section === 'skills' && <div className="seo-list">{skillGroups.map((group) => <section key={group.title}><h2>{group.title}</h2><p>{group.skills.join(' · ')}</p></section>)}</div>}
+        {section === 'experience' && <div className="seo-list">{experience.map((item) => <section key={item.company}><h2>{item.role} — {item.company}</h2><p>{item.date} · {item.location}</p><p>{item.description}</p></section>)}</div>}
+        {section === 'education' && <div className="seo-list">{education.map((item) => <section key={item.degree}><h2>{item.degree}</h2><p>{item.school} · {item.years} · {item.score}</p></section>)}<section><h2>Certifications</h2><p>{certifications.join(' · ')}</p></section><section><h2>Achievements</h2><p>{achievements.join(' · ')}</p></section></div>}
+        {section === 'contact' && <div className="seo-links"><a href="mailto:saitarun1932@gmail.com">saitarun1932@gmail.com</a><a href="tel:+919676561932">+91 96765 61932</a><a href={githubUrl}>GitHub</a><a href={linkedinUrl}>LinkedIn</a></div>}
+        <nav className="seo-related-links" aria-label="Related portfolio pages">
+          <Link href="/projects">Explore projects</Link><Link href="/about">About</Link><Link href="/skills">Skills</Link><Link href="/experience">Experience</Link><Link href="/education">Education</Link><Link href="/contact">Contact</Link>
+        </nav>
+      </article>
+    </main>
+  );
+}
+
+function ProjectDetail() {
+  const { id } = useParams<{ id: string }>();
+  const project = projects.find((item) => item.id === id);
+  usePageMeta(project?.title ?? 'Project', project?.description ?? 'Java software project by Sai Tarun Allu.', `/projects/${id ?? ''}`);
+  if (!project) return <NotFound />;
+  return (
+    <main className="seo-page resume-page">
+      <div className="seo-page-toolbar"><Link href="/projects" className="resume-back"><ArrowLeft size={15} /> All projects</Link><Link href="/resume" className="button-primary">View Resume</Link></div>
+      <article className="seo-page-sheet resume-sheet">
+        <p className="section-kicker">Project {project.number}</p>
+        <h1>{project.title}</h1>
+        <p className="seo-lede">{project.description}</p>
+        <p className="seo-tech">{project.tech.join(' · ')}</p>
+        <section className="seo-list"><h2>Project details</h2><ul>{project.details.map((detail) => <li key={detail}>{detail}</li>)}</ul></section>
+        <nav className="seo-related-links" aria-label="Related portfolio pages"><Link href="/projects">All projects</Link><Link href="/skills">Technical skills</Link><Link href="/experience">Experience</Link><Link href="/resume">Full resume</Link></nav>
+      </article>
+    </main>
+  );
+}
+
+function ProjectsPage() {
+  usePageMeta('Java Projects', 'Java, JDBC, MySQL, collections, and backend application projects by Sai Tarun Allu.', '/projects');
+  return (
+    <main className="seo-page resume-page">
+      <div className="seo-page-toolbar"><Link href="/" className="resume-back"><ArrowLeft size={15} /> Portfolio</Link><Link href="/resume" className="button-primary">View Resume</Link></div>
+      <article className="seo-page-sheet resume-sheet"><p className="section-kicker">Selected work</p><h1>Java Software Projects</h1><p className="seo-lede">Practical Java projects covering banking systems, custom collections, CRUD workflows, JDBC, MySQL, and data processing.</p><div className="seo-project-list">{projects.map((project) => <section key={project.id}><h2><Link href={`/projects/${project.id}`}>{project.title}</Link></h2><p>{project.description}</p><p className="seo-tech">{project.tech.join(' · ')}</p><Link href={`/projects/${project.id}`}>Read project details <ArrowUpRight size={14} /></Link></section>)}</div></article>
+    </main>
   );
 }
 
@@ -534,6 +661,9 @@ function Router() {
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/resume" component={Resume} />
+        <Route path="/projects" component={ProjectsPage} />
+        <Route path="/projects/:id" component={ProjectDetail} />
+        <Route path="/:section" component={SectionPage} />
         <Route component={NotFound} />
       </Switch>
     </RoutedErrorBoundary>
