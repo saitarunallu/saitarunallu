@@ -1,11 +1,6 @@
 <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="180" height="180" rx="42" fill="#16263E"/>
-  <path
-    d="M126.5 52.5C117.8 45.1 106.2 41 93.8 41C72.4 41 57 52.4 57 68.7C57 85 70.1 91.5 88.4 96.1C103.4 99.9 108.3 103.6 108.3 110.8C108.3 117.6 102.1 122 92.4 122C81.2 122 70.7 117.4 61.9 108.9"
-    stroke="#F15A3A"
-    stroke-width="18"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
-  <path d="M123 127.5H139" stroke="#C8E2D9" stroke-width="10" stroke-linecap="round"/>
+  <rect width="180" height="180" rx="38" fill="#F15A3A"/>
+  <rect x="16" y="16" width="148" height="148" rx="27" stroke="#16263E" stroke-opacity=".2" stroke-width="2"/>
+  <text x="90" y="112" text-anchor="middle" fill="#F4F1E9" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="700" letter-spacing="-5">ST</text>
+  <path d="M43 137H78" stroke="#16263E" stroke-width="7" stroke-linecap="round"/>
 </svg>
