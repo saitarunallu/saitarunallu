@@ -244,6 +244,45 @@ function ProjectCard({ project }: { project: typeof projects[number] }) {
   );
 }
 
+function ContactForm() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = new FormData(event.currentTarget);
+    const name = String(form.get('name') ?? '').trim();
+    const email = String(form.get('email') ?? '').trim();
+    const message = String(form.get('message') ?? '').trim();
+    const subject = `Portfolio enquiry from ${name}`;
+    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+    setSubmitted(true);
+    window.location.href = `mailto:saitarun1932@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
+  return (
+    <form className="contact-form" onSubmit={handleSubmit} aria-label="Contact form">
+      <div className="contact-form-row">
+        <label>
+          <span>Your name</span>
+          <input name="name" type="text" placeholder="Your name" autoComplete="name" required />
+        </label>
+        <label>
+          <span>Email address</span>
+          <input name="email" type="email" placeholder="you@example.com" autoComplete="email" required />
+        </label>
+      </div>
+      <label>
+        <span>Message</span>
+        <textarea name="message" placeholder="Tell me a little about the opportunity or project." rows={5} required />
+      </label>
+      <div className="contact-form-footer">
+        <button className="contact-submit" type="submit"><Mail size={15} /> {submitted ? 'Opening email…' : 'Send message'} <ArrowUpRight size={14} /></button>
+        <span className="contact-form-note">Opens your email app with the message ready to send.</span>
+      </div>
+    </form>
+  );
+}
+
 const publicSections = {
   about: {
     label: 'About',
@@ -332,7 +371,7 @@ function SectionPage() {
         {section === 'skills' && <div className="seo-list">{skillGroups.map((group) => <section key={group.title}><h2>{group.title}</h2><p>{group.skills.join(' · ')}</p></section>)}</div>}
         {section === 'experience' && <div className="seo-list">{experience.map((item) => <section key={item.company}><h2>{item.role} — {item.company}</h2><p>{item.date} · {item.location}</p><p>{item.description}</p></section>)}</div>}
         {section === 'education' && <div className="seo-list">{education.map((item) => <section key={item.degree}><h2>{item.degree}</h2><p>{item.school} · {item.years} · {item.score}</p></section>)}<section><h2>Certifications</h2><p>{certifications.join(' · ')}</p></section><section><h2>Achievements</h2><p>{achievements.join(' · ')}</p></section></div>}
-        {section === 'contact' && <div className="seo-links"><a href="mailto:saitarun1932@gmail.com">saitarun1932@gmail.com</a><a href="tel:+919676561932">+91 96765 61932</a><a href={githubUrl}>GitHub</a><a href={linkedinUrl}>LinkedIn</a></div>}
+         {section === 'contact' && <><div className="seo-links"><a href="mailto:saitarun1932@gmail.com">saitarun1932@gmail.com</a><a href="tel:+919676561932">+91 96765 61932</a><a href={githubUrl}>GitHub</a><a href={linkedinUrl}>LinkedIn</a></div><ContactForm /></>}
         <nav className="seo-related-links" aria-label="Related portfolio pages">
           <Link href="/projects">Explore projects</Link><Link href="/about">About</Link><Link href="/skills">Skills</Link><Link href="/experience">Experience</Link><Link href="/education">Education</Link><Link href="/contact">Contact</Link>
         </nav>
@@ -571,6 +610,7 @@ function Home() {
              <a className="contact-link" href={githubUrl} target="_blank" rel="noreferrer" data-testid="link-contact-github"><Github size={15} /> GitHub <ArrowUpRight size={14} /></a>
              <a className="contact-link" href={linkedinUrl} target="_blank" rel="noreferrer" data-testid="link-contact-linkedin"><Linkedin size={15} /> LinkedIn <ArrowUpRight size={14} /></a>
           </div>
+           <ContactForm />
         </div>
       </section>
 
