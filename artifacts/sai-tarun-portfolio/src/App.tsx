@@ -1,6 +1,6 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ArrowLeft, ArrowUpRight, ChevronDown, ChevronUp, Download, Eye, Github, Linkedin, Mail, MapPin, Menu, Phone, Printer, Terminal, X } from 'lucide-react';
+import { AlertCircle, ArrowLeft, ArrowUpRight, Check, CheckCircle2, ChevronDown, ChevronUp, Download, Eye, Github, Linkedin, LoaderCircle, Mail, MapPin, Menu, Phone, Printer, Terminal, X } from 'lucide-react';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
@@ -247,14 +247,40 @@ function ProjectCard({ project }: { project: typeof projects[number] }) {
 function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [messageLength, setMessageLength] = useState(0);
+  const [formValues, setFormValues] = useState({ name: '', email: '', message: '' });
+  const [touched, setTouched] = useState({ name: false, email: false, message: false });
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+
+  const getFieldError = (field: 'name' | 'email' | 'message', value: string) => {
+    if (!value.trim()) return field === 'message' ? 'Add a message so I know how to help.' : 'This field is required.';
+    if (field === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())) return 'Please enter a valid email address.';
+    return '';
+  };
+
+  const updateField = (field: 'name' | 'email' | 'message', value: string) => {
+    setFormValues((current) => ({ ...current, [field]: value }));
+    if (field === 'message') setMessageLength(value.length);
+    if (status === 'success') setStatus('idle');
+  };
+
+  const showFieldError = (field: 'name' | 'email' | 'message') => Boolean((touched[field] || hasSubmitted) && getFieldError(field, formValues[field]));
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = new FormData(event.currentTarget);
+    const formElement = event.currentTarget;
+    const form = new FormData(formElement);
     const name = String(form.get('name') ?? '').trim();
     const email = String(form.get('email') ?? '').trim();
     const message = String(form.get('message') ?? '').trim();
     const website = String(form.get('website') ?? '').trim();
+    setHasSubmitted(true);
+    setTouched({ name: true, email: true, message: true });
+    if (getFieldError('name', name) || getFieldError('email', email) || getFieldError('message', message)) {
+      setStatus('idle');
+      setErrorMessage('');
+      return;
+    }
     setStatus('sending');
     setErrorMessage('');
 
@@ -266,7 +292,9 @@ function ContactForm() {
       });
       const result = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(result.error || 'The message could not be sent right now.');
-      event.currentTarget.reset();
+      formElement.reset();
+      setFormValues({ name: '', email: '', message: '' });
+      setMessageLength(0);
       setStatus('success');
     } catch (error) {
       setStatus('error');
@@ -275,32 +303,90 @@ function ContactForm() {
   };
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit} aria-label="Contact form">
-      <div className="contact-form-row">
-        <label>
-          <span>Your name</span>
-          <input name="name" type="text" placeholder="Your name" autoComplete="name" required />
-        </label>
-        <label>
-          <span>Email address</span>
-          <input name="email" type="email" placeholder="you@example.com" autoComplete="email" required />
-        </label>
+    <div className="contact-form-shell">
+      <div className="contact-form-heading">
+        <div className="contact-form-title-row">
+          <span>Send a note</span>
+          <span className="contact-form-time"><span className="contact-status-dot" /> Usually replies within 1–2 days</span>
+        </div>
+        <p>Have a role, product, or Java project in mind? A few details are enough to start a useful conversation.</p>
       </div>
-      <label>
-        <span>Message</span>
-        <textarea name="message" placeholder="Tell me a little about the opportunity or project." rows={5} required />
-      </label>
+      <form className="contact-form" onSubmit={handleSubmit} aria-label="Contact form" noValidate>
+        <div className="contact-form-row">
+          <label className={showFieldError('name') ? 'has-error' : ''} htmlFor="contact-name">
+            <span>Your name <b aria-hidden="true">*</b></span>
+            <input
+              id="contact-name"
+              name="name"
+              type="text"
+              placeholder="How should I address you?"
+              autoComplete="name"
+              value={formValues.name}
+              onChange={(event) => updateField('name', event.target.value)}
+              onBlur={() => setTouched((current) => ({ ...current, name: true }))}
+              aria-invalid={showFieldError('name')}
+              aria-describedby={showFieldError('name') ? 'contact-name-error' : undefined}
+              required
+              data-testid="input-contact-name"
+            />
+            {showFieldError('name') && <span className="contact-field-error" id="contact-name-error"><AlertCircle size={13} /> {getFieldError('name', formValues.name)}</span>}
+          </label>
+          <label className={showFieldError('email') ? 'has-error' : ''} htmlFor="contact-email">
+            <span>Email address <b aria-hidden="true">*</b></span>
+            <input
+              id="contact-email"
+              name="email"
+              type="email"
+              placeholder="you@company.com"
+              autoComplete="email"
+              value={formValues.email}
+              onChange={(event) => updateField('email', event.target.value)}
+              onBlur={() => setTouched((current) => ({ ...current, email: true }))}
+              aria-invalid={showFieldError('email')}
+              aria-describedby={showFieldError('email') ? 'contact-email-error' : undefined}
+              required
+              data-testid="input-contact-email"
+            />
+            {showFieldError('email') && <span className="contact-field-error" id="contact-email-error"><AlertCircle size={13} /> {getFieldError('email', formValues.email)}</span>}
+          </label>
+        </div>
+        <label className={showFieldError('message') ? 'has-error' : ''} htmlFor="contact-message">
+          <span>What can I help with? <b aria-hidden="true">*</b></span>
+          <textarea
+            id="contact-message"
+            name="message"
+            placeholder="Tell me about the opportunity, product, or problem you’re solving."
+            rows={5}
+            maxLength={5000}
+            value={formValues.message}
+            onChange={(event) => updateField('message', event.target.value)}
+            onBlur={() => setTouched((current) => ({ ...current, message: true }))}
+            aria-invalid={showFieldError('message')}
+            aria-describedby={showFieldError('message') ? 'contact-message-error contact-message-count' : 'contact-message-count'}
+            required
+            data-testid="input-contact-message"
+          />
+          <span className="contact-message-meta">
+            {showFieldError('message') ? <span className="contact-field-error" id="contact-message-error"><AlertCircle size={13} /> {getFieldError('message', formValues.message)}</span> : <span className="contact-field-hint">No pitch deck needed — context is enough.</span>}
+            <small className="contact-character-count" id="contact-message-count">{messageLength} / 5000</small>
+          </span>
+        </label>
         <label className="contact-honeypot" aria-hidden="true">
           <span>Website</span>
-          <input name="website" type="text" tabIndex={-1} autoComplete="off" />
+          <input name="website" type="text" tabIndex={-1} autoComplete="off" data-testid="input-contact-website" />
         </label>
-      <div className="contact-form-footer">
-         <button className="contact-submit" type="submit" disabled={status === 'sending'}><Mail size={15} /> {status === 'sending' ? 'Sending…' : status === 'success' ? 'Message sent' : 'Send message'} <ArrowUpRight size={14} /></button>
-         <span className={`contact-form-note contact-form-status-${status}`} role={status === 'error' || status === 'success' ? 'status' : undefined}>
-           {status === 'success' ? 'Thanks — your message is on its way.' : status === 'error' ? errorMessage : 'Your message will be sent directly to Sai Tarun.'}
-         </span>
-      </div>
-    </form>
+        <div className="contact-form-footer">
+          <button className={`contact-submit contact-submit-${status}`} type="submit" disabled={status === 'sending'} data-testid="button-contact-submit">
+            {status === 'sending' ? <LoaderCircle className="contact-submit-icon contact-submit-spin" size={15} /> : status === 'success' ? <Check size={15} /> : status === 'error' ? <Mail size={15} /> : <Mail size={15} />}
+            <span>{status === 'sending' ? 'Sending message' : status === 'success' ? 'Message sent' : status === 'error' ? 'Try again' : 'Send message'}</span>
+            {status !== 'sending' && status !== 'success' && <ArrowUpRight size={14} />}
+          </button>
+          <div className={`contact-form-note contact-form-status-${status}`} role={status === 'error' || status === 'success' ? 'status' : undefined} aria-live="polite" data-testid="status-contact-form">
+            {status === 'success' ? <><CheckCircle2 size={15} /> <span>Thanks — your note is on its way. I’ll reply by email.</span></> : status === 'error' ? <><AlertCircle size={15} /> <span>{errorMessage}</span></> : <><span className="contact-note-mark">↳</span> <span>Your message goes directly to Sai Tarun.</span></>}
+          </div>
+        </div>
+      </form>
+    </div>
   );
 }
 
