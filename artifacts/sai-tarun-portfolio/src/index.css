@@ -358,6 +358,20 @@
 .project-details ul { padding: 0 0 0 17px; margin: 0; color: inherit; }
 .project-details li { font-size: 12px; line-height: 1.6; margin-top: 7px; color: hsl(var(--primary-foreground) / .7); }
 .project-card:not(.featured) .project-details li { color: hsl(var(--muted-foreground)); }
+.project-repository {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 16px;
+  color: hsl(var(--primary));
+  font: 600 11px var(--app-font-mono);
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.project-repository:hover { color: hsl(var(--accent)); }
+.project-card.featured .project-repository { color: hsl(var(--primary-foreground)); }
+.project-card.featured .project-repository:hover { color: hsl(var(--accent)); }
+.project-repository-detail { margin: 5px 0 30px; }
 
 .education-band { background: hsl(216 21% 88%); border-top: 1px solid hsl(var(--border)); border-bottom: 1px solid hsl(var(--border)); }
 .education-layout { display: grid; grid-template-columns: .75fr 1.25fr; gap: 76px; }

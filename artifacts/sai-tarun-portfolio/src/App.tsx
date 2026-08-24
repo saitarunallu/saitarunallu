@@ -80,6 +80,7 @@ const projects = [
       'Input validation and exception handling to improve application reliability.',
       'Reusable DAO classes for organized database operations.',
     ],
+    repository: 'https://github.com/saitarunallu/java-banking-management-system',
     featured: true,
   },
   {
@@ -234,6 +235,11 @@ function ProjectCard({ project }: { project: typeof projects[number] }) {
           </ul>
         </div>
       )}
+       {project.repository && (
+         <a className="project-repository" href={project.repository} target="_blank" rel="noreferrer">
+           <Github size={14} /> View source on GitHub <ArrowUpRight size={13} />
+         </a>
+       )}
     </article>
   );
 }
@@ -348,6 +354,7 @@ function ProjectDetail() {
         <h1>{project.title}</h1>
         <p className="seo-lede">{project.description}</p>
         <p className="seo-tech">{project.tech.join(' · ')}</p>
+         {project.repository && <a className="project-repository project-repository-detail" href={project.repository} target="_blank" rel="noreferrer"><Github size={14} /> View source on GitHub <ArrowUpRight size={13} /></a>}
         <section className="seo-list"><h2>Project details</h2><ul>{project.details.map((detail) => <li key={detail}>{detail}</li>)}</ul></section>
         <nav className="seo-related-links" aria-label="Related portfolio pages"><Link href="/projects">All projects</Link><Link href="/skills">Technical skills</Link><Link href="/experience">Experience</Link><Link href="/resume">Full resume</Link></nav>
       </article>
