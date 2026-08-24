@@ -799,11 +799,11 @@
 /* Contact form: a direct, reassuring conversion moment */
 .contact-form-shell {
   min-width: 0;
-  padding: 26px;
-  border: 1px solid hsl(var(--accent-foreground) / .28);
-  background: hsl(var(--primary) / .1);
+  padding: 0;
+  border: 0;
+  background: transparent;
 }
-.contact-form-heading { margin-bottom: 25px; }
+.contact-form-heading { margin-bottom: 17px; }
 .contact-form-title-row {
   display: flex;
   align-items: center;
@@ -831,15 +831,15 @@
   box-shadow: 0 0 0 3px hsl(var(--secondary) / .15);
 }
 .contact-form-heading p {
-  max-width: 340px;
-  margin: 9px 0 0;
+  max-width: 290px;
+  margin: 7px 0 0;
   color: hsl(var(--accent-foreground) / .75);
-  font-size: 13px;
+  font-size: 11px;
   line-height: 1.55;
 }
-.contact-form { gap: 18px; }
-.contact-form-row { gap: 13px; }
-.contact-form label { gap: 8px; }
+.contact-form { gap: 12px; }
+.contact-form-row { gap: 10px; }
+.contact-form label { gap: 6px; }
 .contact-form label > span:first-child {
   color: hsl(var(--accent-foreground) / .9);
   font-size: 10px;
@@ -852,10 +852,10 @@
   border-color: hsl(var(--accent-foreground) / .43);
   border-radius: 1px;
   background: hsl(var(--accent-foreground) / .08);
-  padding: 13px 14px;
+  padding: 10px 11px;
 }
-.contact-form input { min-height: 47px; }
-.contact-form textarea { min-height: 132px; }
+.contact-form input { min-height: 39px; }
+.contact-form textarea { min-height: 94px; }
 .contact-form input::placeholder,
 .contact-form textarea::placeholder { color: hsl(var(--accent-foreground) / .55); }
 .contact-form input:hover,
@@ -901,12 +901,12 @@
 }
 .contact-form-footer {
   align-items: center;
-  gap: 16px;
-  padding-top: 2px;
+  gap: 11px;
+  padding-top: 1px;
 }
 .contact-submit {
-  min-height: 45px;
-  padding: 12px 15px;
+  min-height: 38px;
+  padding: 9px 11px;
   transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
 }
 .contact-submit:hover:not(:disabled) {
@@ -928,8 +928,8 @@
   display: inline-flex;
   align-items: flex-start;
   gap: 7px;
-  max-width: 235px;
-  min-height: 30px;
+  max-width: 190px;
+  min-height: 24px;
   color: hsl(var(--accent-foreground) / .68);
   font: 10px/1.5 var(--app-font-mono);
 }
@@ -943,7 +943,7 @@
   .contact-form-shell { grid-column: 1 / -1; }
 }
 @media (max-width: 680px) {
-  .contact-form-shell { margin-top: 42px; padding: 22px 18px; }
+  .contact-form-shell { margin-top: 35px; }
   .contact-form-title-row { display: block; }
   .contact-form-time { display: flex; margin-top: 11px; white-space: normal; }
   .contact-form-heading p { font-size: 12px; }
