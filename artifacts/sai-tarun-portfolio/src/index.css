@@ -976,3 +976,44 @@
 @media (max-width: 680px) {
   .contact-panel { grid-template-columns: 1fr; }
 }
+
+/* Give the contact panel a calmer reading order on laptops, where three narrow
+   columns make the inputs and supporting copy feel cramped. */
+.contact-panel {
+  padding: clamp(32px, 4vw, 52px);
+  column-gap: clamp(28px, 4vw, 58px);
+  row-gap: 34px;
+}
+.contact-panel > :first-child {
+  min-width: 0;
+}
+.contact-links {
+  width: 100%;
+  max-width: 360px;
+  justify-self: start;
+}
+.contact-form-shell {
+  max-width: 620px;
+}
+@media (max-width: 1100px) {
+  .contact-panel {
+    grid-template-columns: minmax(260px, .9fr) minmax(250px, .75fr);
+    align-items: start;
+  }
+  .contact-form-shell {
+    grid-column: 1 / -1;
+    max-width: 680px;
+    width: 100%;
+    justify-self: start;
+  }
+}
+@media (max-width: 680px) {
+  .contact-panel {
+    padding: 30px 24px;
+    row-gap: 30px;
+  }
+  .contact-links,
+  .contact-form-shell {
+    max-width: none;
+  }
+}
