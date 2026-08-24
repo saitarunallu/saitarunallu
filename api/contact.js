@@ -23,6 +23,25 @@ function getClientAddress(request) {
   return 'unknown';
 }
 
+function brandedEmail({ eyebrow, title, intro, content, footer }) {
+  return `
+    <div style="margin:0;background:#f4f1e9;padding:36px 18px;font-family:Arial,Helvetica,sans-serif;color:#171717">
+      <div style="max-width:620px;margin:0 auto;background:#ffffff;border:1px solid #ded8cc">
+        <div style="background:#ef4b23;padding:28px 32px;color:#fff">
+          <div style="font-family:'Courier New',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:.8">SAI TARUN ALLU / JAVA ENGINEER</div>
+          <div style="margin-top:34px;font-size:31px;line-height:1.05;font-weight:700;letter-spacing:-1px">${title}</div>
+        </div>
+        <div style="padding:30px 32px">
+          <div style="font-family:'Courier New',monospace;font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:#ef4b23">${eyebrow}</div>
+          <p style="margin:16px 0 24px;font-size:16px;line-height:1.6;color:#34312d">${intro}</p>
+          ${content}
+          <div style="margin-top:30px;padding-top:18px;border-top:1px solid #e5e0d7;font-family:'Courier New',monospace;font-size:11px;line-height:1.6;color:#777067">${footer}</div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 export default async function handler(request, response) {
   if (request.method !== 'POST') {
     return response.status(405).json({ ok: false, error: 'Method not allowed.' });
@@ -63,6 +82,19 @@ export default async function handler(request, response) {
   }
 
   try {
+    const adminEmail = brandedEmail({
+      eyebrow: 'New portfolio enquiry',
+      title: 'Someone wants to talk about the work.',
+      intro: 'A new message arrived through your portfolio contact form.',
+      content: `
+        <div style="border-left:3px solid #ef4b23;padding:2px 0 2px 18px">
+          <p style="margin:0 0 10px;font-size:14px"><strong style="color:#171717">From</strong><br>${escapeHtml(name.trim())} &lt;${escapeHtml(email.trim())}&gt;</p>
+          <p style="margin:0;font-size:15px;line-height:1.7;white-space:pre-wrap;color:#34312d">${escapeHtml(message.trim())}</p>
+        </div>
+      `,
+      footer: 'Reply directly to this email to continue the conversation.',
+    });
+
     const resendResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -74,13 +106,7 @@ export default async function handler(request, response) {
         to: [recipient],
         reply_to: email.trim(),
         subject: `Portfolio enquiry from ${name.trim()}`,
-        html: `
-          <h2>New portfolio enquiry</h2>
-          <p><strong>Name:</strong> ${escapeHtml(name.trim())}</p>
-          <p><strong>Email:</strong> ${escapeHtml(email.trim())}</p>
-          <p><strong>Message:</strong></p>
-          <p>${escapeHtml(message.trim()).replace(/\n/g, '<br />')}</p>
-        `,
+        html: adminEmail,
         text: `Name: ${name.trim()}\nEmail: ${email.trim()}\n\n${message.trim()}`,
       }),
     });
@@ -106,6 +132,35 @@ export default async function handler(request, response) {
       return response.status(502).json({ ok: false, error });
     }
 
+    const confirmationResponse = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: sender,
+        to: [email.trim()],
+        subject: 'Thanks for reaching out — Sai Tarun Allu',
+        html: brandedEmail({
+          eyebrow: 'Message received',
+          title: 'Thanks for reaching out.',
+          intro: `Hi ${escapeHtml(name.trim())}, I’ve received your note and will get back to you by email soon.`,
+          content: `
+            <div style="background:#f8f6f1;border:1px solid #e5e0d7;padding:18px 20px">
+              <div style="font-family:'Courier New',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#ef4b23;margin-bottom:10px">Your note</div>
+              <div style="font-size:14px;line-height:1.7;color:#34312d;white-space:pre-wrap">${escapeHtml(message.trim())}</div>
+            </div>
+          `,
+          footer: 'Sai Tarun Allu · Java Software Engineer · saitarunallu.com',
+        }),
+        text: `Hi ${name.trim()},\n\nThanks for reaching out. I received your message and will get back to you by email soon.\n\nYour note:\n${message.trim()}\n\nSai Tarun Allu`,
+      }),
+    });
+
+    // The enquiry is already delivered to the owner; a failed confirmation should
+    // not make the visitor resubmit and risk duplicate enquiries.
+    void confirmationResponse;
     recentSubmissions.set(clientAddress, Date.now());
     return response.status(200).json({ ok: true });
   } catch {
