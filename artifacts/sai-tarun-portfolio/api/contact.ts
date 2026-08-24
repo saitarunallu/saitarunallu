@@ -1,1 +1,1 @@
-export { default } from '../../../api/contact';
+export { default } from '../../../api/contact.js';
