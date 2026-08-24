@@ -1,53 +1,34 @@
-type ContactBody = {
-  name?: unknown;
-  email?: unknown;
-  message?: unknown;
-  website?: unknown;
-};
-
-type VercelRequest = {
-  method?: string;
-  body?: ContactBody;
-  headers: Record<string, string | string[] | undefined>;
-};
-
-type VercelResponse = {
-  status: (code: number) => VercelResponse;
-  json: (body: unknown) => void;
-};
-
 const recipient = process.env.CONTACT_RECIPIENT_EMAIL || 'saitarun1932@gmail.com';
 const sender = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
+const recentSubmissions = new Map();
 
-function escapeHtml(value: string) {
+function escapeHtml(value) {
   return value.replace(/[&<>"']/g, (character) => ({
     '&': '&amp;',
     '<': '&lt;',
     '>': '&gt;',
     '"': '&quot;',
     "'": '&#039;',
-  })[character] ?? character);
+  })[character] || character);
 }
 
-function isValidEmail(value: string) {
+function isValidEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
-function getClientAddress(request: VercelRequest) {
+function getClientAddress(request) {
   const forwarded = request.headers['x-forwarded-for'];
   if (typeof forwarded === 'string') return forwarded.split(',')[0].trim();
   if (Array.isArray(forwarded)) return forwarded[0] || 'unknown';
   return 'unknown';
 }
 
-const recentSubmissions = new Map<string, number>();
-
-export default async function handler(request: VercelRequest, response: VercelResponse) {
+export default async function handler(request, response) {
   if (request.method !== 'POST') {
     return response.status(405).json({ ok: false, error: 'Method not allowed.' });
   }
 
-  const { name, email, message, website } = request.body ?? {};
+  const { name, email, message, website } = request.body || {};
 
   if (typeof website === 'string' && website.trim()) {
     return response.status(200).json({ ok: true });
@@ -69,7 +50,7 @@ export default async function handler(request: VercelRequest, response: VercelRe
 
   const clientAddress = getClientAddress(request);
   const lastSubmission = recentSubmissions.get(clientAddress);
-  if (lastSubmission && Date.now() - lastSubmission < 60_000) {
+  if (lastSubmission && Date.now() - lastSubmission < 60000) {
     return response.status(429).json({ ok: false, error: 'Please wait a minute before sending another message.' });
   }
 
@@ -105,7 +86,7 @@ export default async function handler(request: VercelRequest, response: VercelRe
     });
 
     if (!resendResponse.ok) {
-      const providerBody = await resendResponse.json().catch(() => ({})) as { message?: unknown };
+      const providerBody = await resendResponse.json().catch(() => ({}));
       const providerMessage = typeof providerBody.message === 'string' ? providerBody.message.toLowerCase() : '';
       let error = 'The message could not be sent right now. Please use the email link below.';
 
@@ -122,10 +103,7 @@ export default async function handler(request: VercelRequest, response: VercelRe
         error = 'Resend rejected the email details. Check the recipient and sender settings in Vercel.';
       }
 
-      return response.status(502).json({
-        ok: false,
-        error,
-      });
+      return response.status(502).json({ ok: false, error });
     }
 
     recentSubmissions.set(clientAddress, Date.now());
