@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from 'react';
+import { useEffect, useState, type FormEvent, type ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ArrowLeft, ArrowUpRight, ChevronDown, ChevronUp, Download, Eye, Github, Linkedin, Mail, MapPin, Menu, Phone, Printer, Terminal, X } from 'lucide-react';
 import { ErrorBoundary } from '@/components/error-boundary';
@@ -245,18 +245,33 @@ function ProjectCard({ project }: { project: typeof projects[number] }) {
 }
 
 function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
     const name = String(form.get('name') ?? '').trim();
     const email = String(form.get('email') ?? '').trim();
     const message = String(form.get('message') ?? '').trim();
-    const subject = `Portfolio enquiry from ${name}`;
-    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-    setSubmitted(true);
-    window.location.href = `mailto:saitarun1932@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const website = String(form.get('website') ?? '').trim();
+    setStatus('sending');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message, website }),
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result.error || 'The message could not be sent right now.');
+      event.currentTarget.reset();
+      setStatus('success');
+    } catch (error) {
+      setStatus('error');
+      setErrorMessage(error instanceof Error ? error.message : 'The message could not be sent right now.');
+    }
   };
 
   return (
@@ -275,9 +290,15 @@ function ContactForm() {
         <span>Message</span>
         <textarea name="message" placeholder="Tell me a little about the opportunity or project." rows={5} required />
       </label>
+        <label className="contact-honeypot" aria-hidden="true">
+          <span>Website</span>
+          <input name="website" type="text" tabIndex={-1} autoComplete="off" />
+        </label>
       <div className="contact-form-footer">
-        <button className="contact-submit" type="submit"><Mail size={15} /> {submitted ? 'Opening email…' : 'Send message'} <ArrowUpRight size={14} /></button>
-        <span className="contact-form-note">Opens your email app with the message ready to send.</span>
+         <button className="contact-submit" type="submit" disabled={status === 'sending'}><Mail size={15} /> {status === 'sending' ? 'Sending…' : status === 'success' ? 'Message sent' : 'Send message'} <ArrowUpRight size={14} /></button>
+         <span className={`contact-form-note contact-form-status-${status}`} role={status === 'error' || status === 'success' ? 'status' : undefined}>
+           {status === 'success' ? 'Thanks — your message is on its way.' : status === 'error' ? errorMessage : 'Your message will be sent directly to Sai Tarun.'}
+         </span>
       </div>
     </form>
   );

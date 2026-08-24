@@ -403,10 +403,14 @@
 .contact-form input::placeholder, .contact-form textarea::placeholder { color: hsl(var(--accent-foreground) / .66); }
 .contact-form input:focus, .contact-form textarea:focus { border-color: hsl(var(--accent-foreground)); box-shadow: 0 0 0 2px hsl(var(--accent-foreground) / .16); }
 .contact-form textarea { resize: vertical; min-height: 108px; }
+.contact-honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .contact-form-footer { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
 .contact-submit { display: inline-flex; align-items: center; gap: 8px; border: 1px solid hsl(var(--primary)); background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); padding: 12px 14px; font: 600 11px var(--app-font-mono); cursor: pointer; }
+.contact-submit:disabled { cursor: wait; opacity: .7; }
 .contact-submit:hover { background: hsl(var(--primary) / .86); }
 .contact-form-note { max-width: 180px; font: 10px/1.45 var(--app-font-mono); color: hsl(var(--accent-foreground) / .72); }
+.contact-form-status-success { color: hsl(var(--accent-foreground)); }
+.contact-form-status-error { color: hsl(0 90% 96%); }
 .footer { max-width: 1240px; padding: 0 30px 25px; margin: 0 auto; display: flex; justify-content: space-between; color: hsl(var(--muted-foreground)); font: 11px var(--app-font-mono); }
 
 .reveal { animation: reveal .75s both; }
