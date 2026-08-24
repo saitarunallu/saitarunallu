@@ -13,8 +13,9 @@ const githubUrl = 'https://github.com/saitarunallu';
 const linkedinUrl = 'https://www.linkedin.com/in/saitarunallu/';
 
 const navigation = [
+  { id: 'top', label: 'Home' },
   { id: 'about', label: 'About' },
-  { id: 'projects', label: 'Projects' },
+  { id: 'projects', label: 'Work' },
   { id: 'skills', label: 'Skills' },
   { id: 'experience', label: 'Experience' },
   { id: 'education', label: 'Education' },
@@ -168,6 +169,7 @@ function Header({ activeSection }: { activeSection: string }) {
             <a
               href={`#${item.id}`}
               className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+              aria-current={activeSection === item.id ? 'page' : undefined}
               onClick={closeMenu}
               key={item.id}
               data-testid={`link-nav-${item.id}`}
