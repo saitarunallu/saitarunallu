@@ -105,9 +105,26 @@ export default async function handler(request: VercelRequest, response: VercelRe
     });
 
     if (!resendResponse.ok) {
+      const providerBody = await resendResponse.json().catch(() => ({})) as { message?: unknown };
+      const providerMessage = typeof providerBody.message === 'string' ? providerBody.message.toLowerCase() : '';
+      let error = 'The message could not be sent right now. Please use the email link below.';
+
+      if (resendResponse.status === 401) {
+        error = 'The email service key was rejected. Check the Vercel Production RESEND_API_KEY and redeploy.';
+      } else if (
+        resendResponse.status === 403 ||
+        providerMessage.includes('domain') ||
+        providerMessage.includes('sender') ||
+        providerMessage.includes('from')
+      ) {
+        error = 'Resend rejected the sender address. Set RESEND_FROM_EMAIL to a verified domain address in Vercel, then redeploy.';
+      } else if (resendResponse.status === 422) {
+        error = 'Resend rejected the email details. Check the recipient and sender settings in Vercel.';
+      }
+
       return response.status(502).json({
         ok: false,
-        error: 'The message could not be sent right now. Please use the email link below.',
+        error,
       });
     }
 

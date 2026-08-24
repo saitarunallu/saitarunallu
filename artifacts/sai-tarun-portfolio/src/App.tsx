@@ -304,13 +304,6 @@ function ContactForm() {
 
   return (
     <div className="contact-form-shell">
-      <div className="contact-form-heading">
-        <div className="contact-form-title-row">
-          <span>Send a note</span>
-          <span className="contact-form-time"><span className="contact-status-dot" /> Usually replies within 1–2 days</span>
-        </div>
-        <p>Have a role, product, or Java project in mind? A few details are enough to start a useful conversation.</p>
-      </div>
       <form className="contact-form" onSubmit={handleSubmit} aria-label="Contact form" noValidate>
         <div className="contact-form-row">
           <label className={showFieldError('name') ? 'has-error' : ''} htmlFor="contact-name">
