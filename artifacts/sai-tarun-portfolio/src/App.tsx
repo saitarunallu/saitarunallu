@@ -382,7 +382,7 @@ function ContactForm() {
             {status !== 'sending' && status !== 'success' && <ArrowUpRight size={14} />}
           </button>
           <div className={`contact-form-note contact-form-status-${status}`} role={status === 'error' || status === 'success' ? 'status' : undefined} aria-live="polite" data-testid="status-contact-form">
-            {status === 'success' ? <><CheckCircle2 size={15} /> <span>Thanks — your note is on its way. I’ll reply by email.</span></> : status === 'error' ? <><AlertCircle size={15} /> <span>{errorMessage}</span></> : <><span className="contact-note-mark">↳</span> <span>Your message goes directly to Sai Tarun.</span></>}
+            {status === 'success' ? <><CheckCircle2 size={15} /> <span>Thanks — your note is on its way. I’ll reply by email.</span></> : status === 'error' ? <><AlertCircle size={15} /> <span>{errorMessage} <a className="contact-fallback-link" href="mailto:saitarun1932@gmail.com">Open email instead</a></span></> : <><span className="contact-note-mark">↳</span> <span>Your message goes directly to Sai Tarun.</span></>}
           </div>
         </div>
       </form>

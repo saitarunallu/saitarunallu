@@ -951,3 +951,28 @@
   .contact-submit { width: 100%; }
   .contact-form-note { max-width: none; }
 }
+
+/* Keep the form feeling like part of the contact panel, not a fourth stretched column. */
+.contact-panel {
+  grid-template-columns: minmax(250px, .95fr) minmax(220px, .72fr) minmax(300px, .95fr);
+  align-items: start;
+}
+.contact-form-shell {
+  width: 100%;
+  max-width: 430px;
+  justify-self: end;
+}
+.contact-form-heading p { max-width: 330px; }
+.contact-form-note { max-width: 210px; }
+.contact-fallback-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (max-width: 900px) {
+  .contact-panel { grid-template-columns: minmax(220px, .9fr) minmax(220px, .8fr); }
+  .contact-form-shell { max-width: none; justify-self: stretch; }
+}
+@media (max-width: 680px) {
+  .contact-panel { grid-template-columns: 1fr; }
+}
