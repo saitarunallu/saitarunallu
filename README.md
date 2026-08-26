@@ -2,9 +2,9 @@
 
 # 👋 Hi, I'm Sai Tarun Allu
 
-### Java Software Engineer
+### Associate Analyst | Quality Engineering / Automation Testing
 
-**Core Java · OOP · JDBC · MySQL · SQL · Backend Development**
+**Java · SQL · JDBC · MySQL · Testing · Debugging · Automation Testing**
 
 <a href="https://saitarunallu.com">
   <img src="https://img.shields.io/badge/PORTFOLIO-111827?style=for-the-badge" alt="Portfolio">
@@ -34,11 +34,11 @@
 
 ## 👨‍💻 About
 
-I'm **Allu Surya Naga Sai Tarun**, a Java Software Engineer focused on building practical, maintainable applications with **Core Java, OOP, JDBC, MySQL, and SQL**.
+I'm **Allu Surya Naga Sai Tarun**, an **Associate Analyst focused on Quality Engineering / Automation Testing**, with a strong foundation in **Core Java, OOP, SQL, JDBC, MySQL, debugging, input validation, exception handling, and modular testing**.
 
-I enjoy understanding what happens underneath the abstractions. My work combines database-driven applications with hands-on exploration of **collections, data structures, validation, exception handling, and modular design**.
+I build database-backed Java applications with **CRUD workflows, DAO-based organization, PreparedStatement, transactions, reusable components, and validation**. I’m also developing my expertise in **test automation, Selenium, API testing, and quality-focused engineering practices**.
 
-**Focus:** Java Software Engineering · Backend Development
+**Focus:** Quality Engineering · Automation Testing · Java · SQL · Database Testing
 
 ---
 
@@ -46,10 +46,11 @@ I enjoy understanding what happens underneath the abstractions. My work combines
 
 | Area | Skills |
 |:--|:--|
-| **Core Java** | Java, OOP, Collections, Exception Handling, File Handling, Multithreading, Generics, Lambda Expressions, Stream API, Interfaces, Abstract Classes |
-| **Database & Backend** | JDBC, MySQL, SQL, PreparedStatement, CRUD, Transactions, DAO |
-| **Web & Tools** | HTML5, CSS3, Bootstrap, Flexbox, Git, IntelliJ IDEA, Eclipse, VS Code |
-| **Engineering** | Data Structures, Algorithms, Debugging, Input Validation, Clean Code, Modular Programming |
+| **Programming** | Java, SQL, OOP, Collections Framework, Exception Handling, Generics, Streams, Lambda Expressions, Enums, Interfaces |
+| **Database & Backend** | MySQL, JDBC, PreparedStatement, CRUD Operations, Transactions, SQL Joins, GROUP BY, HAVING, Subqueries |
+| **Testing / Quality** | Modular Test Classes, Unit Testing, Edge-Case Testing, Input Validation, Debugging, Defect-Oriented Problem Solving |
+| **Tools** | Git, GitHub, IntelliJ IDEA, Eclipse, VS Code |
+| **Web / Supporting** | HTML5, CSS3, Bootstrap, Responsive Web Design, Flexbox |
 
 ---
 
@@ -57,19 +58,20 @@ I enjoy understanding what happens underneath the abstractions. My work combines
 
 ### 🏦 <a href="https://github.com/saitarunallu/java-banking-management-system">Java Banking Management System</a>
 
-**Java 21 · JDBC · MySQL 8 · Maven · OOP**
+**Java · JDBC · MySQL · OOP · Maven**
 
-A console-based banking application demonstrating **layered architecture, DAO and service-layer design, JDBC connectivity, session management, and database-driven operations**.
+A console-based banking application demonstrating **customer registration, authentication, account creation, deposits, withdrawals, balance enquiry, fund transfers, and transaction history**.
 
 **Highlights**
-- Customer registration and login
+- Customer registration and authentication
 - Automatic bank account creation
-- Deposits and withdrawals
-- Balance enquiry
-- Transaction history
-- Account details
-- Input validation and exception handling
-- `PreparedStatement` and CRUD operations
+- Deposits, withdrawals, and fund transfers
+- Balance enquiry and transaction history
+- MySQL integration using JDBC and `PreparedStatement`
+- CRUD operations, input validation, and exception handling
+- SQL injection prevention
+- Reusable DAO classes and layered architecture
+- Modular test coverage for reliability
 
 <a href="https://github.com/saitarunallu/java-banking-management-system">
   <img src="https://img.shields.io/badge/VIEW_SOURCE_CODE-181717?style=for-the-badge&logo=github&logoColor=white" alt="View source code">
@@ -77,15 +79,25 @@ A console-based banking application demonstrating **layered architecture, DAO an
 
 ---
 
-### 🧱 Custom Java Collections Framework
+### 🎓 <a href="https://github.com/saitarunallu/Student-Management-System">Student Management System</a>
 
-**Core Java**
+**Java · JDBC · MySQL**
 
-Hands-on implementations of common collection data structures to understand their internal mechanics.
+A database-backed student management application demonstrating **CRUD workflows, modular programming, validation, JDBC integration, and persistent MySQL storage**.
 
-**Implemented:** `ArrayList` · `LinkedList` · `HashMap` · `Stack` · `Queue`
+**Highlights**
+- Student registration
+- Student search
+- Student update and deletion
+- Persistent MySQL storage
+- JDBC integration
+- Input validation
+- Database-backed record management
+- Modular application design
 
-**Explored:** Dynamic resizing · Hashing · Collision handling · Linked nodes · Collection internals · Modular testing
+<a href="https://github.com/saitarunallu/Student-Management-System">
+  <img src="https://img.shields.io/badge/VIEW_SOURCE_CODE-181717?style=for-the-badge&logo=github&logoColor=white" alt="View source code">
+</a>
 
 ---
 
@@ -93,32 +105,29 @@ Hands-on implementations of common collection data structures to understand thei
 
 | Project | Technologies |
 |:--|:--|
-| 🎓 **Student Management System** | Java · JDBC · MySQL |
-| 📚 **Library Management System** | Java · JDBC · MySQL |
-| 👥 **Employee Management System** | Java · JDBC · MySQL |
-| 💰 **Expense Tracker** | Java · Collections · Streams · Lambda |
+| 💰 <a href="https://github.com/saitarunallu/Expense-Tracker"><b>Expense Tracker</b></a> | Java · Collections · Stream API · Lambda |
 
 ---
 
 ## 🎓 Education
 
 **Master of Computer Applications (MCA)**  
-Andhra University · 2026  
+Andhra University · 2024 - 2026  
 **CGPA: 9.10 / 10**
 
 **Bachelor of Science (MECS)**  
-Aditya Degree College · 2023  
+Aditya Degree College · 2018 - 2023  
 **CGPA: 7.13 / 10**
 
 ---
 
 ## 💼 Professional Background
 
-**Concentrix — Associate** · May 2022 – August 2023  
-Banking customer support in a high-volume environment.
+**Associate - Concentrix** · May 2022 – August 2023  
+Resolved banking account-related queries in a high-volume environment, strengthening **analytical thinking, problem solving, attention to detail, and issue resolution**.
 
-**Just Dial — Certified Internet Consultant** · October 2021 – May 2022  
-Digital product consulting, demonstrations, customer requirements, and client communication.
+**Certified Internet Consultant - Just Dial** · October 2021 – May 2022  
+Conducted product demonstrations and gathered customer requirements, strengthening **communication, requirement understanding, and client-facing problem solving**.
 
 ---
 
@@ -182,7 +191,7 @@ Digital product consulting, demonstrations, customer requirements, and client co
 
 <div align="center">
 
-**Java Software Engineer · Backend Development**
+**Quality Engineering · Automation Testing · Java · SQL**
 
 <sub>Built and maintained by Sai Tarun Allu</sub>
 
